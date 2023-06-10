@@ -22,9 +22,8 @@ export default (props) => {
   };
 
   const onClick = (event) => {
-    if (result) setResult(0);
-
-    calcObj.addInput(event);
+    const isInputAdded = calcObj.addInput(event);
+    if (isInputAdded) setResult(NaN)
     calcObj.calculateResult();
     setExpression(calcObj.expression);
   };
@@ -44,7 +43,10 @@ export default (props) => {
 
   return (
     <div className="calc__container">
-      <Expression expression={expression} />
+      <Expression
+        expression={expression}
+        calculationHistory={calcObj.calculationHistory}
+      />
       <Result tempValue={calcObj.result} result={result} />
       <InputButtons
         clearResult={clearResult}

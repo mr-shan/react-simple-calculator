@@ -2,8 +2,8 @@ import { useEffect } from "react";
 
 export default (props) => {
   const keyPressHandler = (event) => {
-    
-    console.log(event.key, event.keyCode)
+    event.preventDefault();
+    event.stopPropagation();    
     if (event.keyCode === 8 || event.keyCode === 46)
       return props.handleBackspace();
     

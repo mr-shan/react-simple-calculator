@@ -1,8 +1,9 @@
 import { sanitize, sanitizeString } from "./sanitizer";
 
-interface IOperation {
-  expression: string;
-  result: number;
+export interface IOperation {
+  expression: string
+  result: number
+  id: string
 }
 
 class Calculator {
@@ -52,6 +53,7 @@ class Calculator {
     const resultData = {
       expression: this.expression,
       result: this.result,
+      id: new Date().toISOString()
     }
 
     this.calculationHistory.push(resultData);
