@@ -1,0 +1,51 @@
+.calc-num-button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-radius: 100%;
+  min-width: 3rem;
+  min-height: 3rem;
+  max-width: 6rem;
+  max-height: 6rem;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  border-radius: 50%;
+  box-shadow: 3px 3px 6px black, -3px -3px 6px #333;
+  font-weight: 400;
+}
+
+.regular {
+  color: #ddd;
+  background: transparent;
+}
+
+.accent {
+  background-color: rgb(255, 143, 0);
+  color: white;
+  font-size: 2rem;
+  padding-bottom: 5px;
+}
+
+.secondary {
+  background-color: #999;
+  color: #333;
+  font-size: 1.6rem;
+}
+
+.calculate-large-button {
+  border-radius: 14px;
+  width: 50%;
+}
+
+.history-button img {
+  width: 1rem;
+}
+
+.backspace-button {
+  font-size: 1.6rem;
+}

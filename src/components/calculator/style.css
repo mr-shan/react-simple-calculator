@@ -1,0 +1,58 @@
+.calc__expression-wrapper {
+  height: 100%;
+  flex-direction: column-reverse;
+  display: flex;
+  min-height: 6rem;
+  transition: all 0.2s;
+}
+
+.calc_expression-text {
+  background-color: transparent;
+  color: #eee;
+  width: 100%;
+  text-align: right;
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin: 0;
+  line-break: anywhere;
+  max-height: 100%;
+  text-overflow: ellipsis;
+  overflow: scroll;
+}
+
+.calc__result-wrapper {
+  width: 100%;
+  padding: 10px 0;
+  text-align: right;
+  transition: all 0.2s;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.calc__result-wrapper p {
+  transition: all 0.2s ease-out;
+  margin: 0;
+  height: 2rem;
+}
+
+.calc__result-text-temp {
+  font-size: 1.75rem;
+  color: #999;
+  position: relative;
+  bottom: 0;
+}
+.calc__result-text-final {
+  font-size: 3rem;
+  position: relative;
+  bottom: 20px;
+  color: #eee;
+}
+
+.calc__input-buttons-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+}
