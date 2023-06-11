@@ -8,6 +8,7 @@ import history from "./../../assets/history.png";
 interface IProps {
   expression: string;
   calculationHistory: Array<IOperation>;
+  expressionLength: number;
 }
 
 export default (props: IProps) => {
@@ -24,21 +25,28 @@ export default (props: IProps) => {
     historyRef.current.scrollTop = historyRef.current.scrollHeight;
   }, [props.calculationHistory]);
 
-  const expressionLength = props.expression.toString().length;
   const expressionStyleObj = { fontSize: "2.5rem" };
-  if (expressionLength > 18) expressionStyleObj.fontSize = "1.5rem";
-  else if (expressionLength > 11) expressionStyleObj.fontSize = "2rem";
+  if (props.expressionLength > 16) expressionStyleObj.fontSize = "1.5rem";
+  else if (props.expressionLength > 11) expressionStyleObj.fontSize = "2rem";
 
   return (
     <div className="calc__expression-wrapper">
-      <p className="calc_expression-text" ref={expressionRef} style={expressionStyleObj}>
-        {props.expression}
-      </p>
+      <p
+        className="calc_expression-text"
+        ref={expressionRef}
+        style={expressionStyleObj}
+        dangerouslySetInnerHTML={{ __html: props.expression }}
+      ></p>
 
       {showHistory && (
         <div className="calc__expression-history" ref={historyRef}>
           {props.calculationHistory.map((item) => (
-            <p key={item.id}>{`${item.expression} = ${item.result}`}</p>
+            <p
+              key={item.id}
+              dangerouslySetInnerHTML={{
+                __html: `${item.expression} = ${item.result}`,
+              }}
+            ></p>
           ))}
         </div>
       )}
