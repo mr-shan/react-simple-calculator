@@ -10,6 +10,8 @@
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
+  min-height: 600px;
+  min-width: 264px;
 }
 
 @media screen and (max-width: 650px) {
@@ -23,7 +25,7 @@
 
 @media screen and (min-width: 650px) {
   .calc__container {
-    max-width: 22rem;
+    max-width: 20rem;
     height: 40rem;
     position: absolute;
     left: 0;

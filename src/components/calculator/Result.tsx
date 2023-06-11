@@ -6,10 +6,22 @@ interface IProps {
 }
 
 export default (props: IProps) => {
+  const isFinalResult = !isNaN(props.result);
+  const resultStyleObj = { fontSize: "3rem" };
+  
+  if (isFinalResult) {
+    const resultLength = props.result.toString().length;
+    if (resultLength > 20) resultStyleObj.fontSize = "1.5rem"
+    else if (resultLength > 14) resultStyleObj.fontSize = "2rem";
+    else if (resultLength > 8) resultStyleObj.fontSize = "2.5rem";
+  }
+  
   return (
     <div className="calc__result-wrapper">
-      {!isNaN(props.result) ? (
-        <p className="calc__result-text-final">{props.result}</p>
+      {isFinalResult ? (
+        <p className="calc__result-text-final" style={resultStyleObj}>
+          {props.result}
+        </p>
       ) : (
         <p className="calc__result-text-temp">{props.tempValue}</p>
       )}

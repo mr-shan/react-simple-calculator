@@ -1,9 +1,9 @@
 import { sanitize, sanitizeString } from "./sanitizer";
 
 export interface IOperation {
-  expression: string
-  result: number
-  id: string
+  expression: string;
+  result: number;
+  id: string;
 }
 
 class Calculator {
@@ -35,12 +35,11 @@ class Calculator {
     if (!/[+\-*/.]/.test(this.expression)) {
       this.result = 0;
       return;
-    };
+    }
 
     try {
       let rawResult = eval(this.expression);
-      if (rawResult.toString().includes('.'))
-        rawResult = rawResult.toFixed(2);
+      if (rawResult.toString().includes(".")) rawResult = rawResult.toFixed(2);
       this.result = rawResult;
       this.isError = false;
     } catch (error) {
@@ -49,12 +48,14 @@ class Calculator {
   }
 
   showResult() {
-    if (this.isError) return null;
+    if (this.isError || (this.result === 0 && this.expression === ""))
+      return null;
+
     const resultData = {
       expression: this.expression,
       result: this.result,
-      id: new Date().toISOString()
-    }
+      id: new Date().toISOString(),
+    };
 
     this.calculationHistory.push(resultData);
     this.clearResult();

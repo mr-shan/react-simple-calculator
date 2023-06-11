@@ -12,7 +12,7 @@ const ALLOWED_CHARACTERS = {
   ".": ".",
   "+": "+",
   "-": "-",
-  "x": "*",
+  "*": "*",
   "/": "/",
   "(": "(",
   ")": ")",
@@ -20,8 +20,6 @@ const ALLOWED_CHARACTERS = {
 };
 
 export const sanitize = char => {
-  if (char?.length > 1) return '';
-
   const sanitizedChar = ALLOWED_CHARACTERS[char];
   return sanitizedChar || sanitizedChar === 0 ? sanitizedChar : '';
 }

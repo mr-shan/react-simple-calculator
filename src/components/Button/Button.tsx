@@ -1,21 +1,24 @@
 import "./Button.css";
 
+import { ICalculatorKey } from "../../helpers/calculatorKeys";
+
 interface IProps {
-  className: string,
-  operator: string,
+  details: ICalculatorKey,
   onClick: any
 }
 
-export default (props: IProps) => {
+export default ({ details, onClick }:IProps) => {
   const onClickHandler = () => {
-    props.onClick(props.operator)
+    onClick(details.onClick, details.operator)
   }
+
+  const classes = ["calc-num-button", ...details.classNames];
   return (
     <button
-      className={"calc-num-button " + props.className}
+      className={classes.toString().replaceAll(',', ' ')}
       onClick={onClickHandler}
     >
-      {props.operator}
+      <span dangerouslySetInnerHTML={{__html: details.label}}></span>
     </button>
   );
 };

@@ -4,6 +4,9 @@
   display: flex;
   min-height: 6rem;
   transition: all 0.2s;
+  justify-content: space-between;
+  margin-top: 5px;
+  position: relative;
 }
 
 .calc_expression-text {
@@ -19,14 +22,42 @@
   text-overflow: ellipsis;
   overflow: scroll;
   padding: 0 8px;
+
 }
 
 .calc__expression-history {
   margin-bottom: 1rem;
-  margin-bottom: 1rem;
   text-align: right;
   font-size: 1rem;
-  color: #666;
+  color: #777;
+  overflow-y: auto;
+  height: 50%;
+  text-overflow: ellipsis;
+  line-break: anywhere;
+  padding: 0 6px;
+}
+
+.calc__expression-history p {
+  margin: 0;
+  margin-bottom: 14px;
+  font-size: 1.25rem;
+}
+
+.calc__history-button {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  outline: none;
+  background: none;
+  border: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.calc__history-button img {
+  width: 1.5rem;
 }
 
 .calc__result-wrapper {
@@ -34,7 +65,8 @@
   padding: 10px 0;
   text-align: right;
   transition: all 0.2s;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
   position: relative;
   padding: 0 8px;
 }
