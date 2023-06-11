@@ -17,6 +17,7 @@ export default ({ details, onClick }:IProps) => {
     <button
       className={classes.toString().replaceAll(',', ' ')}
       onClick={onClickHandler}
+      tabIndex={-1}
     >
       <span dangerouslySetInnerHTML={{__html: details.label}}></span>
     </button>

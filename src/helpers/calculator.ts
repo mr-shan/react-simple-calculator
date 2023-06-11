@@ -76,6 +76,7 @@ class Calculator {
     this.result = 0;
     this.expression = "";
     this.isError = false;
+    this.hasCalculationPerformed = false;
   }
 }
 

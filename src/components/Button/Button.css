@@ -16,6 +16,11 @@
   border-radius: 50%;
   box-shadow: 3px 3px 7px black, -3px -3px 6px #333;
   font-weight: 400;
+  transition: all 0.25s ease-out;
+}
+
+.calc-num-button:active {
+  box-shadow: 2px 2px 5px black inset, -2px -2px 5px #333 inset;
 }
 
 .regular {
@@ -30,10 +35,18 @@
   padding-bottom: 5px;
 }
 
+.accent:active {
+  box-shadow: 3px 3px 5px rgb(158, 90, 0) inset, -3px -3px 5px rgb(255, 180, 82) inset;
+}
+
 .secondary {
   background-color: #999;
   color: #333;
   font-size: 1.6rem;
+}
+
+.secondary:active {
+  box-shadow: 3px 3px 5px #666 inset, -3px -3px 5px #bbb inset;
 }
 
 .calculate-large-button {
