@@ -11,11 +11,13 @@ class Calculator {
   calculationHistory: Array<IOperation>;
   result: number;
   isError: boolean;
+  hasCalculationPerformed: boolean;
 
   constructor() {
     this.expression = "";
     this.calculationHistory = [];
     this.result = 0;
+    this.hasCalculationPerformed = false;
     this.isError = false;
   }
 
@@ -34,6 +36,7 @@ class Calculator {
   calculateResult() {
     if (!/[+\-*/.]/.test(this.expression)) {
       this.result = 0;
+      this.hasCalculationPerformed = false;
       return;
     }
 
@@ -42,13 +45,15 @@ class Calculator {
       if (rawResult.toString().includes(".")) rawResult = rawResult.toFixed(2);
       this.result = rawResult;
       this.isError = false;
+      this.hasCalculationPerformed = true;
     } catch (error) {
       this.isError = true;
+      this.hasCalculationPerformed = false
     }
   }
 
   showResult() {
-    if (this.isError || (this.result === 0 && this.expression === ""))
+    if (this.isError || !this.hasCalculationPerformed)
       return null;
 
     const resultData = {
