@@ -62,6 +62,13 @@ class Calculator {
       } else {
         const recentOp = this.operationsInProgress[this.operationsInProgress.length - 1];
         if (recentOp.type === 'dot') return false;
+
+        const expressionText = this.expression + char.label;
+        try {
+          eval(expressionText)
+        } catch (error) {
+          return false;
+        }
       }
     }
 
