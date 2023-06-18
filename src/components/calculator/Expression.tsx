@@ -63,6 +63,7 @@ export default (props: IProps) => {
 
       <button
         className="calc__history-button"
+        style={showHistory ? { filter: 'brightness(2)' } : {}}
         onClick={() => setShowHistory(!showHistory)}
       >
         <img src={history} />

@@ -54,10 +54,12 @@
   height: 1.5rem;
   padding: 0;
   margin: 0;
+  transition: all 0.2s ease-out;
 }
 
 .calc__history-button img {
   width: 1.5rem;
+  filter: brightness(0.5);
 }
 
 .calc__result-wrapper {
