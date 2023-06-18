@@ -1,5 +1,5 @@
-import { sanitize, sanitizeString } from "./sanitizer";
-import { IOperator } from "./sanitizer";
+import { sanitize, sanitizeString } from './sanitizer';
+import { IOperator } from './sanitizer';
 
 export interface IOperation {
   expression: string;
@@ -18,7 +18,7 @@ class Calculator {
   lastResult: IOperator | null;
 
   constructor() {
-    this.expression = "";
+    this.expression = '';
     this.expressionLength = 0;
     this.operationsInProgress = [];
     this.calculationHistory = [];
@@ -32,19 +32,36 @@ class Calculator {
     const char = sanitize(input);
     if (char === null) return false;
 
-    if (char.type === "operator") {
+    if (char.type === 'operator') {
       if (
         this.operationsInProgress[this.operationsInProgress.length - 1]
-          ?.type === "operator"
+          ?.type === 'operator'
       )
         this.removeLastInput();
       else if (this.operationsInProgress.length === 0) {
-        if (char.value !== "-" && !this.lastResult) return false;
+        if (char.value !== '-' && !this.lastResult) return false;
         if (this.lastResult) {
-          this.expression += this.lastResult.label;
           this.operationsInProgress.push(this.lastResult);
           this.lastResult = null;
         }
+      }
+    }
+
+    if (char.type === 'number') {
+      if (this.operationsInProgress.length === 0 && char.value === '0')
+        return false;
+    }
+
+    if (char.type === 'dot') {
+      if (this.operationsInProgress.length === 0) {
+        this.operationsInProgress.push({
+          type: 'number',
+          value: '0',
+          label: '0',
+        });
+      } else {
+        const recentOp = this.operationsInProgress[this.operationsInProgress.length - 1];
+        if (recentOp.type === 'dot') return false;
       }
     }
 
@@ -54,7 +71,7 @@ class Calculator {
   }
 
   evaluateExpression() {
-    this.expression = "";
+    this.expression = '';
     this.operationsInProgress.map((e) => {
       this.expression += e.label;
     });
@@ -62,20 +79,20 @@ class Calculator {
   }
 
   calculateResult() {
-    if (!this.operationsInProgress.find((e) => e.type === "operator")) {
+    if (!this.operationsInProgress.find((e) => e.type === 'operator')) {
       this.result = 0;
       this.hasCalculationPerformed = false;
       return;
     }
 
     try {
-      this.expressionForCalculation = "";
+      this.expressionForCalculation = '';
       this.operationsInProgress.map((e) => {
         this.expressionForCalculation += e.value;
       });
 
       let rawResult = eval(this.expressionForCalculation);
-      if (rawResult.toString().includes(".")) rawResult = rawResult.toFixed(2);
+      if (rawResult.toString().includes('.')) rawResult = rawResult.toFixed(2);
       this.result = rawResult;
       this.isError = false;
       this.hasCalculationPerformed = true;
@@ -111,14 +128,14 @@ class Calculator {
   saveLastResult(result: string) {
     this.lastResult = {
       label: result,
-      type: "number",
+      type: 'number',
       value: result,
     };
   }
 
   clearResult() {
     this.result = 0;
-    this.expression = "";
+    this.expression = '';
     this.isError = false;
     this.hasCalculationPerformed = false;
     this.operationsInProgress = [];

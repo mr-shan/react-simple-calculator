@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
-import "./style.css";
+import './style.css';
 
-import { IOperation } from "../../helpers/calculator";
-import history from "./../../assets/history.png";
+import { IOperation } from '../../helpers/calculator';
+import history from './../../assets/history.png';
 
 interface IProps {
   expression: string;
@@ -25,9 +25,15 @@ export default (props: IProps) => {
     historyRef.current.scrollTop = historyRef.current.scrollHeight;
   }, [props.calculationHistory]);
 
-  const expressionStyleObj = { fontSize: "2.5rem" };
-  if (props.expressionLength > 16) expressionStyleObj.fontSize = "1.5rem";
-  else if (props.expressionLength > 11) expressionStyleObj.fontSize = "2rem";
+  const expressionStyleObj = { fontSize: '2.5rem' };
+  const historyObj = { height: '50%' };
+  if (props.expressionLength > 20) expressionStyleObj.fontSize = '1.5rem';
+  else if (props.expressionLength > 15) expressionStyleObj.fontSize = '2rem';
+
+  if (!props.expression) {
+    expressionStyleObj['visib'] = 'none';
+    historyObj.height = '100%';
+  }
 
   return (
     <div className="calc__expression-wrapper">
@@ -39,7 +45,11 @@ export default (props: IProps) => {
       ></p>
 
       {showHistory && (
-        <div className="calc__expression-history" ref={historyRef}>
+        <div
+          className="calc__expression-history"
+          ref={historyRef}
+          style={historyObj}
+        >
           {props.calculationHistory.map((item) => (
             <p
               key={item.id}

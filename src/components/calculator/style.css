@@ -18,9 +18,9 @@
   font-weight: 400;
   margin: 0;
   line-break: anywhere;
-  max-height: 90%;
   text-overflow: ellipsis;
-  overflow: scroll;
+  max-height: 90%;
+  overflow-y: auto;
   padding: 0 8px;
 
 }
