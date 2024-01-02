@@ -43,6 +43,7 @@ class Calculator {
         if (!result) return false;
         break;
       case 'number':
+        if (this.currentNumber === '0' && char.value === '0') return false;
         this.currentNumber += char.value;
         break;
       case 'dot':
