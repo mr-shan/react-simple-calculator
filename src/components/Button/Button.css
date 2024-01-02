@@ -17,6 +17,8 @@
   box-shadow: 3px 3px 7px black, -3px -3px 6px #333;
   font-weight: 400;
   transition: all 0.25s ease-out;
+  user-select: none;
+  cursor: pointer;
 }
 
 .calc-num-button:active {
@@ -72,7 +74,7 @@
   font-weight: 400;
 }
 
-.paranthasis {
+.parenthesis {
   font-size: 1.6rem;
   padding-bottom: 6px;
 }

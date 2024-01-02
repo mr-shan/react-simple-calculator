@@ -56,7 +56,7 @@ const CALCULATOR_KEYS: Array<ICalculatorKey> = [
     operator: "BRACKET",
     label: "(  )",
     onClick: "onClick",
-    classNames: ["regular", "paranthasis"],
+    classNames: ["regular", "parenthesis"],
   },
   { operator: "0", label: "0", onClick: "onClick", classNames: ["regular"] },
   { operator: ".", label: ".", onClick: "onClick", classNames: ["regular"] },

@@ -37,10 +37,12 @@
   padding: 0 6px;
 }
 
-.calc__expression-history p {
+.calc__expression-history-item {
   margin: 0;
   margin-bottom: 14px;
   font-size: 1.25rem;
+  user-select: none;
+  cursor: pointer;
 }
 
 .calc__history-button {

@@ -11,7 +11,7 @@ import "./Calculator.css";
 
 const calcObj = new Calculator();
 
-export default (props) => {
+export default () => {
   const [result, setResult] = React.useState(NaN);
   const [expression, setExpression] = React.useState("");
 

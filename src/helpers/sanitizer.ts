@@ -25,17 +25,16 @@ const ALLOWED_CHARACTERS = {
   "%": { type: 'operator', value: '/100*', label: '&#x25;' }
 };
 
-export const sanitize = (char: string):IOperator | null => {
-  const allowedChar = ALLOWED_CHARACTERS[char];
-  return allowedChar || null;
+export const sanitize = (key: any):IOperator | null => {
+  return key in ALLOWED_CHARACTERS ? ALLOWED_CHARACTERS[key] : null;
 }
 
-export const sanitizeString = str => {
-  let sanitizedstr = '';
+export const sanitizeString = (str: any) => {
+  let sanitizedString = '';
   for(let char of str) {
     const sanitizedChar = ALLOWED_CHARACTERS[char];
     if (sanitizedChar || sanitizedChar === 0)
-      sanitizedstr += sanitizedChar
+      sanitizedString += sanitizedChar
   }
-  return sanitizedstr
+  return sanitizedString
 }

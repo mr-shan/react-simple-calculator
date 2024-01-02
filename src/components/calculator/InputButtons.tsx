@@ -2,7 +2,14 @@ import Button from "../Button/Button";
 import './style.css'
 import CALCULATOR_KEYS from "../../helpers/calculatorKeys";
 
-export default (props) => {
+interface IProps {
+  clearResult: any,
+  onClick: any,
+  handleBackspace: any,
+  showResult: any,
+}
+
+export default (props: IProps) => {
   const onClick = (onClickHandler: string, operator: string) => {
     props[onClickHandler](operator);
   };

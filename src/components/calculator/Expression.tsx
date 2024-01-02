@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 
 import "./style.css";
 
@@ -25,6 +25,10 @@ export default (props: IProps) => {
     historyRef.current.scrollTop = historyRef.current.scrollHeight;
   }, [props.calculationHistory]);
 
+  const historyItemClickHandler = (result: number) => {
+    console.log(result)
+  }
+
   const expressionStyleObj = { fontSize: "2.5rem" };
   if (props.expressionLength > 16) expressionStyleObj.fontSize = "1.5rem";
   else if (props.expressionLength > 11) expressionStyleObj.fontSize = "2rem";
@@ -42,7 +46,9 @@ export default (props: IProps) => {
         <div className="calc__expression-history" ref={historyRef}>
           {props.calculationHistory.map((item) => (
             <p
+              className='calc__expression-history-item'
               key={item.id}
+              onClick={() => historyItemClickHandler(item.result)}
               dangerouslySetInnerHTML={{
                 __html: `${item.expression} = ${item.result}`,
               }}
