@@ -17,6 +17,7 @@ class Calculator {
   hasCalculationPerformed: boolean;
   lastResult: IOperator | null;
   currentNumber: string;
+  openBrackets: number
 
   constructor() {
     this.expression = '';
@@ -29,9 +30,14 @@ class Calculator {
     this.lastResult = null;
 
     this.currentNumber = '';
+    this.openBrackets = 0;
   }
 
   addInput(input: string) {
+    if (input === 'BRACKET') {
+      input = this.handleBracket();
+      console.log(input)
+    }
     const char = sanitize(input);
     if (char === null) return false;
 
@@ -55,6 +61,39 @@ class Calculator {
     this.operationsInProgress.push(char);
     this.evaluateExpression();
     return true;
+  }
+
+  addHistoricalResult(result: number) {
+    const operationLength = this.operationsInProgress.length - 1;
+    const mostRecentOp = this.operationsInProgress[operationLength]
+    if (mostRecentOp?.type === 'number') return false;
+    this.currentNumber = ''
+    result.toString().split('').forEach((char: string) => {
+      const sanitizedChar = sanitize(char);
+      if (!sanitizedChar) return;
+      this.currentNumber += sanitizedChar?.value;
+      this.operationsInProgress.push(sanitizedChar);
+    })
+    this.evaluateExpression();
+    return true;
+  }
+
+  handleBracket() {
+    const operationLength = this.operationsInProgress.length - 1;
+    const mostRecentOp = this.operationsInProgress[operationLength]
+    if (this.openBrackets === 0) {
+      ++this.openBrackets;
+      if (mostRecentOp?.type === 'number' || this.operationsInProgress[operationLength]?.type === 'bracketClose') {
+        this.addInput('*')
+      }
+      return '('
+    } else if (mostRecentOp?.type === 'bracketOpen') {
+      return '';
+    }
+      else {
+      --this.openBrackets;
+      return ')'
+    }
   }
 
   handleOperatorInput(char: IOperator) {

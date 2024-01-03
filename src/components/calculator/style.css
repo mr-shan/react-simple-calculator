@@ -22,19 +22,26 @@
   max-height: 90%;
   overflow-y: auto;
   padding: 0 8px;
-
 }
 
 .calc__expression-history {
-  margin-bottom: 1rem;
   text-align: right;
   font-size: 1rem;
-  color: #777;
-  overflow-y: auto;
-  height: 50%;
   text-overflow: ellipsis;
   line-break: anywhere;
-  padding: 0 6px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  border: solid 1px #999;
+  padding: 1rem;
+  width: 90%;
+  margin: auto;
+  left: 0;
+  border-radius: 10px;
+  height: 80%;
+  background-color: #1a1a1a;
+  z-index: 100;
 }
 
 .calc__expression-history-item {
@@ -45,23 +52,15 @@
   cursor: pointer;
 }
 
-.calc__history-button {
+.calc__expression-history-backdrop {
   position: absolute;
-  left: 5px;
-  top: 5px;
-  outline: none;
-  background: none;
-  border: none;
-  width: 1.5rem;
-  height: 1.5rem;
-  padding: 0;
-  margin: 0;
-  transition: all 0.2s ease-out;
-}
-
-.calc__history-button img {
-  width: 1.5rem;
-  filter: brightness(0.5);
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #eee;
+  opacity: 0.2;
+  top: 0;
 }
 
 .calc__result-wrapper {
