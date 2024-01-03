@@ -149,7 +149,7 @@ class Calculator {
       });
 
       let rawResult = eval(expressionForCalculation);
-      if (rawResult.toString().includes('.')) rawResult = rawResult.toFixed(2);
+      if (rawResult.toString().includes('.')) rawResult = parseFloat(rawResult.toFixed(16))
       this.result = rawResult;
       this.isError = false;
       this.hasCalculationPerformed = true;
