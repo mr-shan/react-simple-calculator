@@ -12,7 +12,7 @@
   align-items: center;
   font-size: 10vw;
   border-radius: 50%;
-  box-shadow: 3px 3px 7px black, -3px -3px 6px #333;
+  box-shadow: 3px 3px 7px var(--box-shadow1), -3px -3px 6px var(--box-shadow2);
   font-weight: 400;
   user-select: none;
   cursor: pointer;
@@ -21,17 +21,17 @@
 }
 
 .calc-num-button:active {
-  box-shadow: 2px 2px 5px black inset, -2px -2px 5px #333 inset;
+  box-shadow: 2px 2px 5px var(--box-shadow1) inset, -2px -2px 5px var(--box-shadow2) inset;
 }
 
 .regular {
-  color: #ddd;
+  color: var(--accent-2);
   background: transparent;
 }
 
 .accent {
-  background-color: rgb(255, 143, 0);
-  color: white;
+  background-color: var(--primary);
+  color: var(--primary-text);;
 }
 
 .accent span {
@@ -39,12 +39,12 @@
 }
 
 .accent:active {
-  box-shadow: 3px 3px 5px rgb(158, 90, 0) inset, -3px -3px 5px rgb(255, 180, 82) inset;
+  box-shadow: 3px 3px 5px var(--primary-box-shadow1) inset, -3px -3px 5px var(--primary-box-shadow2) inset;
 }
 
 .secondary {
-  background-color: #999;
-  color: #333;
+  background-color: var(--secondary);
+  color: var(--secondary-text);
 }
 
 .secondary span {
@@ -52,7 +52,7 @@
 }
 
 .secondary:active {
-  box-shadow: 3px 3px 5px #666 inset, -3px -3px 5px #bbb inset;
+  box-shadow: 3px 3px 5px var(--secondary-box-shadow1) inset, -3px -3px 5px var(--secondary-box-shadow1) inset;
 }
 
 .calculate-large-button {
@@ -62,9 +62,6 @@
 
 .history-button img {
   width: 1rem;
-}
-
-.backspace-button {
 }
 
 .percentage {
@@ -94,7 +91,7 @@
 }
 
 .calc__history-button span {
-  background: #ddd;
+  background: var(--accent-2);
   width: 100%;
   height: 2px;
   border-radius: 5px;
@@ -115,5 +112,13 @@
 @media screen and (min-width: 500px) {
   .calc-num-button {
     font-size: 2.4rem;
+  }
+
+  .accent span {
+    font-size: 2.6rem;
+  }
+
+  .secondary span {
+    font-size: 2.2rem;
   }
 }

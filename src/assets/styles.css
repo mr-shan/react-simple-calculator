@@ -1,0 +1,37 @@
+:root {
+  --bg-1: #101010;
+  --box-shadow1: black;
+  --box-shadow2: #333;
+
+  --accent: #eee;
+  --accent-2: #ddd;
+  
+  --primary: rgb(255, 143, 0);
+  --primary-box-shadow1: rgb(158, 90, 0);
+  --primary-box-shadow2: rgb(255, 180, 82);
+  --primary-text: white;
+
+  --secondary: #999;
+  --secondary-box-shadow1: #666;
+  --secondary-box-shadow2: #bbb;
+  --secondary-text: #333;
+}
+
+[data-theme="light"] {
+  --bg-1: #eee;
+  --box-shadow1: white;
+  --box-shadow2: #bbb;
+
+  --accent: #333;
+  --accent-2: #666;
+  
+  --primary: rgb(255, 143, 0);
+  --primary-box-shadow1: rgb(158, 90, 0);
+  --primary-box-shadow2: rgb(255, 180, 82);
+  --primary-text: white;
+
+  --secondary: #aaa;
+  --secondary-box-shadow1: #666;
+  --secondary-box-shadow2: #eee;
+  --secondary-text: #444;
+}

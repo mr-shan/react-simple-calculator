@@ -1,7 +1,9 @@
+@import url('./assets/styles.css');
+
 :root {
   font-family: -apple-system, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #101010;
+  background-color: var(--bg-1);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
