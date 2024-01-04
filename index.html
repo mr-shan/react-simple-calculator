@@ -3,8 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/icon.png" />
-    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width, height=device-height">
-    <meta name="theme-color" content="#000000">
+    <meta
+      name="viewport"
+      content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width, height=device-height"
+    />
+    <meta name="theme-color" content="#000000" />
     <title>Simple Calculator</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +15,22 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Pathway+Extreme:wght@100;300;500;700&display=swap"
       rel="stylesheet"
+      defer
     />
+    <script>
+      const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
+      if (darkThemeMq.matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute('content', '#101010');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute('content', '#eee');
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
