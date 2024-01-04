@@ -24,7 +24,7 @@ export default () => {
     setExpression('');
   };
 
-  const onClick = (event) => {
+  const onClick = (event: any) => {
     const isInputAdded = calcObj.addInput(event);
     if (isInputAdded) setResult(NaN);
     calcObj.calculateResult();

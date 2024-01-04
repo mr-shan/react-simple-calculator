@@ -1,5 +1,6 @@
 import { sanitize, sanitizeString } from './sanitizer';
 import { IOperator } from './sanitizer';
+import CalculatorDatabase from './indexedDb';
 
 export interface IOperation {
   expression: string;
@@ -17,7 +18,8 @@ class Calculator {
   hasCalculationPerformed: boolean;
   lastResult: IOperator | null;
   currentNumber: string;
-  openBrackets: number
+  openBrackets: number;
+  calculatorDb: any;
 
   constructor() {
     this.expression = '';
@@ -31,6 +33,8 @@ class Calculator {
 
     this.currentNumber = '';
     this.openBrackets = 0;
+    this.calculatorDb = new CalculatorDatabase();
+    this.loadCalculations();
   }
 
   addInput(input: string) {
@@ -169,10 +173,15 @@ class Calculator {
       id: new Date().toISOString(),
     };
 
-    this.calculationHistory.push(resultData);
+    this.saveCalculation(resultData)
     this.clearResult();
-    this.saveLastResult(resultData.result.toString());
     return resultData;
+  }
+
+  saveCalculation(resultData: IOperation) {
+    this.calculationHistory.push(resultData)
+    this.saveLastResult(resultData.result.toString())
+    this.calculatorDb.addCalculation(resultData)
   }
 
   removeLastInput() {
@@ -200,6 +209,15 @@ class Calculator {
     this.lastResult = null;
     this.expressionLength = 0;
     this.currentNumber = '';
+  }
+
+  async loadCalculations() {
+    try {
+      const data = await this.calculatorDb.fetchAllCalculations();
+      if (Array.isArray(data)) this.calculationHistory = data;
+    } catch (error) {
+      console.error('The calculation history data in local storage is corrupted ')
+    }
   }
 }
 

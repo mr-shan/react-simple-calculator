@@ -2,7 +2,6 @@
   height: 100%;
   flex-direction: column-reverse;
   display: flex;
-  min-height: 6rem;
   transition: all 0.2s;
 }
 
@@ -21,8 +20,4 @@
   overflow-y: visible;
   height: 1px;
   max-height: 6rem;
-}
-
-.reduced-input-height {
-  min-height: 4rem;
 }

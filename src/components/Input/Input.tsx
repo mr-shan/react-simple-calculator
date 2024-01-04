@@ -23,12 +23,9 @@ export default (props) => {
     setInputHeight();
     props.onKeyUp(event)
   }
-
-  let classNames = "input-container";
-  classNames += props.resultVisible ? "" : " reduced-input-height";
-
+  
   return (
-    <div className={classNames}>
+    <div className="input-container">
       <textarea
         ref={inputRef}
         className="calculator-input"
