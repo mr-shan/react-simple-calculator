@@ -8,9 +8,9 @@ interface IProps {
 
 const Expression = (props: IProps) => {
   console.log("Expression updated")
-  const expressionStyleObj = { fontSize: '2.5rem' };
-  if (props.expressionLength > 20) expressionStyleObj.fontSize = '1.5rem';
-  else if (props.expressionLength > 15) expressionStyleObj.fontSize = '2rem';
+  const expressionStyleObj = { fontSize: '3.5rem' };
+  if (props.expressionLength > 15) expressionStyleObj.fontSize = '2rem';
+  else if (props.expressionLength > 10) expressionStyleObj.fontSize = '2.5rem';
 
   return (
     <div className='calc__expression-wrapper'>

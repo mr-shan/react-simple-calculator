@@ -2,65 +2,60 @@
   background-color: transparent;
   border: none;
   outline: none;
-  border-radius: 100%;
   min-width: 2rem;
   min-height: 2rem;
   aspect-ratio: 1 / 1;
-  width: 95%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 98%;
+  padding: 0;
+}
+
+.calc-num-button span {
+  width: 100%;
   font-size: 10vw;
-  border-radius: 50%;
   box-shadow: 3px 3px 7px var(--box-shadow1), -3px -3px 6px var(--box-shadow2);
   font-weight: 400;
   user-select: none;
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   white-space: nowrap;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .calc-num-button:active {
   /* box-shadow: 2px 2px 5px var(--box-shadow1) inset, -2px -2px 5px var(--box-shadow2) inset; */
   background-color: var(--box-shadow2);
+  border-radius: 50%;
 }
 
-.regular {
+.regular span {
   color: var(--accent-2);
   background: transparent;
 }
 
-.accent {
+.accent span {
   background-color: var(--primary);
   color: var(--primary-text);
-}
-
-.accent span {
   font-size: 11vw;
 }
 
-.accent:active {
+.accent:active span {
   /* box-shadow: 3px 3px 5px var(--primary-box-shadow1) inset, -3px -3px 5px var(--primary-box-shadow2) inset; */
   background-color: var(--primary-box-shadow2);
 }
 
-.secondary {
+.secondary span {
   background-color: var(--secondary);
   color: var(--secondary-text);
-}
-
-.secondary span {
   font-size: 9vw;
 }
 
-.secondary:active {
+.secondary:active span {
   /* box-shadow: 3px 3px 5px var(--secondary-box-shadow1) inset, -3px -3px 5px var(--secondary-box-shadow1) inset; */
   background-color: var(--secondary-box-shadow1);
-}
-
-.calculate-large-button {
-  border-radius: 14px;
-  width: 50%;
 }
 
 .history-button img {
@@ -107,7 +102,7 @@
   left: 0;
   top: 0;
   margin: 0.8rem;
-  color: var(--primary-text);
+  color: var(--accent);
   background: transparent;
   border: none;
   outline: none;
@@ -116,7 +111,7 @@
 }
 
 @media screen and (min-width: 500px) {
-  .calc-num-button {
+  .calc-num-button span {
     font-size: 2.4rem;
   }
 

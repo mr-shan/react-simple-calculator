@@ -7,21 +7,20 @@ interface IProps {
 
 export default (props: IProps) => {
   const isFinalResult = !isNaN(props.result);
-  const resultStyleObj = { fontSize: '3rem' };
-  const tempResultStyleObj = { fontSize: '1.75rem' };
+  const resultStyleObj = { fontSize: '3.5rem' };
+  const tempResultStyleObj = { fontSize: '2.5rem' };
 
   console.log('result updated')
 
   if (isFinalResult) {
     const resultLength = props.result.toString().length;
-    if (resultLength > 20) resultStyleObj.fontSize = '1.5rem';
-    else if (resultLength > 14) resultStyleObj.fontSize = '2rem';
-    else if (resultLength > 8) resultStyleObj.fontSize = '2.5rem';
+    if (resultLength > 15) resultStyleObj.fontSize = '2rem';
+    else if (resultLength > 10) resultStyleObj.fontSize = '2.5rem';
   }
 
   if (props.tempValue) {
     tempResultStyleObj.fontSize =
-      props.tempValue.toString().length > 14 ? '1.5rem' : '1.75rem';
+      props.tempValue.toString().length > 14 ? '1.75rem' : '2.5rem';
   }
 
   return (
