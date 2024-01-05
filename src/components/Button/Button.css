@@ -99,9 +99,8 @@
 
 .calc_history-button-close {
   position: fixed;
-  left: 0;
-  top: 0;
-  margin: 0.8rem;
+  left: 1rem;
+  top: 0.74rem;
   color: var(--accent);
   background: transparent;
   border: none;

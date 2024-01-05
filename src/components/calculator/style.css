@@ -32,15 +32,21 @@
   top: 0;
   padding: 1rem;
   padding-left: 4rem;
+  padding-top: 4rem;
   width: 90%;
   margin: auto;
   left: 0;
   height: 100%;
   background-color: var(--bg-1);
   overflow: hidden;
-  overflow-y: auto;
 
   animation: slide-in 0.25s ease-out;
+}
+
+.calc__expression-history-items {
+  height: 85%;
+  overflow-y: auto;
+  border: solid 1px red;
 }
 
 .calc__expression-history-out {
@@ -48,12 +54,21 @@
 }
 
 .calc__expression-history-item {
-  margin: 0;
   margin-bottom: 14px;
-  font-size: 1.25rem;
   user-select: none;
   cursor: pointer;
+}
+
+.calc__expression-history-item-expression {
+  font-size: 1.25rem;
+  color: var(--secondary);
+  margin: 0;
+}
+
+.calc__expression-history-item-result {
+  margin-top: 8px;
   color: var(--accent);
+  font-size: 1.5rem;
 }
 
 .calc__expression-history-backdrop {
@@ -77,15 +92,16 @@
   padding: 10px 0;
   text-align: right;
   transition: all 0.2s;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
   margin-top: 1rem;
   position: relative;
-  padding: 0 8px;
+  padding: 0 12px;
 }
 
-.calc__result-wrapper p {
+.calc__result-wrapper div {
+  line-break: anywhere;
+  text-overflow: ellipsis;
   transition: all 0.2s ease-out;
-  margin: 0;
 }
 
 .calc__result-text-temp {
