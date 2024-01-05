@@ -12,11 +12,7 @@ const Button = ({ details, onClick }:IProps) => {
   const onClickHandler = () => {
     onClick(details.onClick, details.operator)
   }
-
   const cachedDetails = React.useMemo(() => details, [details])
-
-  console.log("Button updated: ", details.label)
-
   const classes = ["calc-num-button", ...cachedDetails.classNames];
   return (
     <button

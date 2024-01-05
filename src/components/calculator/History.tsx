@@ -1,6 +1,7 @@
 import './style.css';
 import { IOperation } from '../../helpers/calculator';
 import './../Button/Button.css';
+import React from 'react';
 
 interface IProps {
   calculationHistory: Array<IOperation>;
@@ -9,12 +10,18 @@ interface IProps {
 }
 
 export default (props: IProps) => {
-  console.log("Inside history")
 
   const historyItemClickHandler = (result: number) => {
     console.log(result);
     props.onHistoryItemClick(result);
   };
+
+  React.useEffect(() => {
+    const wrapper = document.querySelector('.calc__expression-history')
+    if (wrapper) {
+      wrapper.scrollTop = wrapper.scrollHeight;
+    }
+  }, [])
 
   return (
     <>

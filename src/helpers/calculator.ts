@@ -54,6 +54,9 @@ class Calculator {
         break;
       case 'number':
         if (this.currentNumber === '0' && char.value === '0') return false;
+        const operationLength = this.operationsInProgress.length - 1;
+        const mostRecentOp = this.operationsInProgress[operationLength]
+        if (mostRecentOp?.type === 'bracketClose') this.addInput('*')
         this.currentNumber += char.value;
         break;
       case 'dot':

@@ -21,7 +21,8 @@
 }
 
 .calc-num-button:active {
-  box-shadow: 2px 2px 5px var(--box-shadow1) inset, -2px -2px 5px var(--box-shadow2) inset;
+  /* box-shadow: 2px 2px 5px var(--box-shadow1) inset, -2px -2px 5px var(--box-shadow2) inset; */
+  background-color: var(--box-shadow2);
 }
 
 .regular {
@@ -39,7 +40,8 @@
 }
 
 .accent:active {
-  box-shadow: 3px 3px 5px var(--primary-box-shadow1) inset, -3px -3px 5px var(--primary-box-shadow2) inset;
+  /* box-shadow: 3px 3px 5px var(--primary-box-shadow1) inset, -3px -3px 5px var(--primary-box-shadow2) inset; */
+  background-color: var(--primary-box-shadow2);
 }
 
 .secondary {
@@ -52,7 +54,8 @@
 }
 
 .secondary:active {
-  box-shadow: 3px 3px 5px var(--secondary-box-shadow1) inset, -3px -3px 5px var(--secondary-box-shadow1) inset;
+  /* box-shadow: 3px 3px 5px var(--secondary-box-shadow1) inset, -3px -3px 5px var(--secondary-box-shadow1) inset; */
+  background-color: var(--secondary-box-shadow1);
 }
 
 .calculate-large-button {
