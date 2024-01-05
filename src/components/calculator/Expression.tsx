@@ -1,14 +1,13 @@
+import React from 'react';
 import './style.css';
-
-import { IOperation } from '../../helpers/calculator';
 
 interface IProps {
   expression: string;
-  calculationHistory: Array<IOperation>;
   expressionLength: number;
 }
 
-export default (props: IProps) => {
+const Expression = (props: IProps) => {
+  console.log("Expression updated")
   const expressionStyleObj = { fontSize: '2.5rem' };
   if (props.expressionLength > 20) expressionStyleObj.fontSize = '1.5rem';
   else if (props.expressionLength > 15) expressionStyleObj.fontSize = '2rem';
@@ -23,3 +22,5 @@ export default (props: IProps) => {
     </div>
   );
 };
+
+export default React.memo(Expression)

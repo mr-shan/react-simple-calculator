@@ -10,6 +10,8 @@ export default (props: IProps) => {
   const resultStyleObj = { fontSize: '3rem' };
   const tempResultStyleObj = { fontSize: '1.75rem' };
 
+  console.log('result updated')
+
   if (isFinalResult) {
     const resultLength = props.result.toString().length;
     if (resultLength > 20) resultStyleObj.fontSize = '1.5rem';

@@ -62,7 +62,6 @@ export default () => {
       <Expression
         expression={expression}
         expressionLength={calcObj.expressionLength}
-        calculationHistory={calcObj.calculationHistory}
       />
       <Result tempValue={calcObj.result} result={result} />
       <InputButtons

@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, memo } from "react";
 
-export default (props) => {
+const KeyPressHelper = (props) => {
   const keyPressHandler = (event) => {
     if (event.keyCode === 8 || event.keyCode === 46)
       return props.handleBackspace();
@@ -13,6 +13,8 @@ export default (props) => {
     props.onKeyDown(event.key);
   };
 
+  console.log("key press helper updated")
+
   useEffect(() => {
     document.addEventListener("keydown", keyPressHandler, false);
 
@@ -23,3 +25,5 @@ export default (props) => {
 
   return <></>;
 };
+
+export default memo(KeyPressHelper, () => true)

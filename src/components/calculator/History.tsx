@@ -9,6 +9,8 @@ interface IProps {
 }
 
 export default (props: IProps) => {
+  console.log("Inside history")
+
   const historyItemClickHandler = (result: number) => {
     console.log(result);
     props.onHistoryItemClick(result);

@@ -1,10 +1,12 @@
+import React from 'react';
 import "./Button.css";
 
 interface IProps {
   toggleHistory: any
 }
 
-export default (props: IProps) => {
+const BurgerIcon = (props: IProps) => {
+  console.log("Burger icon updated")
   return (
     <button
       className='calc__history-button'
@@ -16,3 +18,5 @@ export default (props: IProps) => {
     </button>
   );
 };
+
+export default React.memo(BurgerIcon, () => true)
