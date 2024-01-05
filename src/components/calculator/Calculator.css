@@ -1,6 +1,5 @@
 .calc__container {
   margin: auto;
-  border-radius: 10px;
   box-shadow: 2px 2px 6px var(--box-shadow1), -1px -1px 8px var(--box-shadow2);
   padding-bottom: 0.25rem;
   padding: 0.75rem;

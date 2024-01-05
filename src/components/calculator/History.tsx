@@ -12,9 +12,16 @@ interface IProps {
 export default (props: IProps) => {
 
   const historyItemClickHandler = (result: number) => {
-    console.log(result);
     props.onHistoryItemClick(result);
   };
+
+  const closeHistory = () => {
+    document.querySelector('.calc__expression-history')?.classList.add('calc__expression-history-out')
+    document.querySelector('.calc__expression-history-backdrop')?.classList.add('calc__expression-history-backdrop-out')
+    setTimeout(() => {
+      props.closeHistory()
+    }, 250)
+  }
 
   React.useEffect(() => {
     const wrapper = document.querySelector('.calc__expression-history')
@@ -27,7 +34,7 @@ export default (props: IProps) => {
     <>
       <div
         className='calc__expression-history-backdrop'
-        onClick={props.closeHistory}
+        onClick={closeHistory}
       ></div>
       <div className='calc__expression-history'>
         {props.calculationHistory.length === 0 && (
@@ -44,8 +51,8 @@ export default (props: IProps) => {
           ></p>
         ))}
         <button
-          className='calc-num-button secondary calc_history-button-close'
-          onClick={props.closeHistory}
+          className='calc_history-button-close'
+          onClick={closeHistory}
         >
           &#10005;
         </button>

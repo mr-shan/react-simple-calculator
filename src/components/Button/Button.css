@@ -16,7 +16,7 @@
   font-weight: 400;
   user-select: none;
   cursor: pointer;
-  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   white-space: nowrap;
 }
 
@@ -32,7 +32,7 @@
 
 .accent {
   background-color: var(--primary);
-  color: var(--primary-text);;
+  color: var(--primary-text);
 }
 
 .accent span {
@@ -103,13 +103,16 @@
 }
 
 .calc_history-button-close {
-  width: 1rem;
-  font-weight: bold;
-  position: absolute;
-  bottom: 1rem;
+  position: fixed;
   left: 0;
-  right: 0;
-  margin: auto;
+  top: 0;
+  margin: 0.8rem;
+  color: var(--primary-text);
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 2rem;
 }
 
 @media screen and (min-width: 500px) {

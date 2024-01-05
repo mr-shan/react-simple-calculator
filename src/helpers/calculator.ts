@@ -53,7 +53,7 @@ class Calculator {
         if (!result) return false;
         break;
       case 'number':
-        if (this.currentNumber === '0' && char.value === '0') return false;
+        if (this.currentNumber === '0' && char.value === '0') return false;        
         const operationLength = this.operationsInProgress.length - 1;
         const mostRecentOp = this.operationsInProgress[operationLength]
         if (mostRecentOp?.type === 'bracketClose') this.addInput('*')
@@ -109,6 +109,7 @@ class Calculator {
     if (this.operationsInProgress[operationLength]?.type === 'operator')
       this.removeLastInput();
     else if (this.operationsInProgress.length === 0) {
+      console.log(char.value, this.lastResult)
       if (char.value !== '-' && !this.lastResult) return false;
       if (this.lastResult) {
         this.expression += this.lastResult.label;
@@ -176,8 +177,8 @@ class Calculator {
       id: new Date().toISOString(),
     };
 
-    this.saveCalculation(resultData)
     this.clearResult();
+    this.saveCalculation(resultData)
     return resultData;
   }
 

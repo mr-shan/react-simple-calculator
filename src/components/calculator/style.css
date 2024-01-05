@@ -13,7 +13,7 @@
   color: var(--accent);
   width: 100%;
   text-align: right;
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   font-weight: 400;
   margin: 0;
   line-break: anywhere;
@@ -30,19 +30,22 @@
   line-break: anywhere;
   position: absolute;
   top: 0;
-  bottom: 0;
-  right: 0;
-  border: solid 1px var(--secondary);
   padding: 1rem;
+  padding-left: 4rem;
   width: 90%;
   margin: auto;
   left: 0;
-  border-radius: 10px;
-  height: 80%;
+  height: 100%;
   background-color: var(--bg-1);
-  z-index: 100;
   overflow: hidden;
   overflow-y: auto;
+  box-shadow: 2px 0px 10px 5px var(--bg-1);
+
+  animation: slide-in 0.25s ease-out;
+}
+
+.calc__expression-history-out {
+  animation: slide-out 0.25s ease-out;
 }
 
 .calc__expression-history-item {
@@ -63,6 +66,11 @@
   background: var(--accent);
   opacity: 0.2;
   top: 0;
+  animation: fade-in 0.25s ease-out;
+}
+
+.calc__expression-history-backdrop-out {
+  animation: fade-out 0.25s ease-out;
 }
 
 .calc__result-wrapper {
@@ -83,13 +91,13 @@
 }
 
 .calc__result-text-temp {
-  font-size: 1.75rem;
+  font-size: 2rem;
   color: var(--secondary);
   position: relative;
   bottom: 0;
 }
 .calc__result-text-final {
-  font-size: 3rem;
+  font-size: 3.5rem;
   position: relative;
   bottom: 20px;
   color: var(--accent);
@@ -102,4 +110,46 @@
   justify-items: center;
   align-content: center;
   align-items: center;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
