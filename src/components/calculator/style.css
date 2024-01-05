@@ -39,7 +39,6 @@
   background-color: var(--bg-1);
   overflow: hidden;
   overflow-y: auto;
-  box-shadow: 2px 0px 10px 5px var(--bg-1);
 
   animation: slide-in 0.25s ease-out;
 }
