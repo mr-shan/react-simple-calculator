@@ -15,7 +15,6 @@ export default defineConfig({
         "short_name": "Simple Calculator",
         "start_url": "/",
         "display": "standalone",
-        "background_color": "#000000",
         "theme_color": "ff8f00",
         "icons": [
           {
