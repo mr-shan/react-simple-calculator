@@ -5,6 +5,7 @@
 
   --accent: #eee;
   --accent-2: #ddd;
+  --accent-bg: transparent;
   
   --primary: rgb(255, 143, 0);
   --primary-box-shadow1: rgb(158, 90, 0);
@@ -15,6 +16,8 @@
   --secondary-box-shadow1: #666;
   --secondary-box-shadow2: #bbb;
   --secondary-text: #333;
+
+  --button-corner-radius: 50%
 }
 
 [data-theme="light"] {
@@ -24,6 +27,7 @@
 
   --accent: #333;
   --accent-2: #666;
+  --accent-bg: transparent;
   
   --primary: rgb(255, 143, 0);
   --primary-box-shadow1: rgb(158, 90, 0);
@@ -34,4 +38,28 @@
   --secondary-box-shadow1: #666;
   --secondary-box-shadow2: #eee;
   --secondary-text: #444;
+  --button-corner-radius: 50%
+}
+
+[data-theme="classic"] {
+  --bg-1: #eee;
+  --box-shadow1: transparent;
+  --box-shadow2: transparent;
+
+  --accent: #333;
+  --accent-2: #f9ebd1;
+  --accent-bg: #5b958b;
+
+  /* #d5594a */
+  
+  --primary: #603724;
+  --primary-box-shadow1: rgb(125, 71, 1);
+  --primary-box-shadow2: #99502f;
+  --primary-text: white;
+
+  --secondary: #603724;
+  --secondary-box-shadow1: rgb(125, 71, 1);;
+  --secondary-box-shadow2: #99502f;
+  --secondary-text: white;
+  --button-corner-radius: 1rem
 }

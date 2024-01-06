@@ -18,7 +18,7 @@
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   white-space: nowrap;
-  border-radius: 50%;
+  border-radius: var(--button-corner-radius);
   aspect-ratio: 1 / 1;
   display: flex;
   justify-content: center;
@@ -28,12 +28,12 @@
 .calc-num-button:active {
   /* box-shadow: 2px 2px 5px var(--box-shadow1) inset, -2px -2px 5px var(--box-shadow2) inset; */
   background-color: var(--box-shadow2);
-  border-radius: 50%;
+  border-radius: var(--button-corner-radius);
 }
 
 .regular span {
   color: var(--accent-2);
-  background: transparent;
+  background: var(--accent-bg);
 }
 
 .accent span {
