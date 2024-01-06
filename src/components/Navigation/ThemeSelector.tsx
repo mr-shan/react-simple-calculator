@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import "./ThemeSelector.css";
 
@@ -9,14 +9,19 @@ export default () => {
   const buttons: Themes[] = ["auto", "dark", "light"];
 
   const themeChangeHandler = (theme: Themes) => {
-    localStorage.setItem('preferredTheme', theme);
-    if (theme === 'auto') {
+    localStorage.setItem("preferredTheme", theme);
+    if (theme === "auto") {
       window.setAutoTheme();
     } else {
       window.setTheme(theme);
     }
-    setSelectedTheme(theme)
-  }
+    setSelectedTheme(theme);
+  };
+
+  useEffect(() => {
+    const preferredTheme = localStorage.getItem("preferredTheme") || "auto";
+    setSelectedTheme(preferredTheme);
+  }, []);
 
   return (
     <div className="calc-theme-selector__container">
