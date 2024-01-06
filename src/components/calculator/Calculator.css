@@ -12,14 +12,14 @@
   overscroll-behavior: none;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 500px) {
   .calc__container {
     max-height: 100vh;
     margin: 0;
   }
 }
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 500px) {
   .calc__container {
     max-width: 24rem;
     max-height: 52rem;

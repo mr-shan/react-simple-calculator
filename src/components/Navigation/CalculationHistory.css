@@ -1,0 +1,27 @@
+.calc__expression-history-container {
+  height: 80%;
+  overflow-y: auto;
+  width: 78%;
+  position: relative;
+  right: 0;
+  padding: 1rem 2rem 1rem 1rem;
+  margin-top: 4rem;
+}
+
+.calc__expression-history-item {
+  margin-bottom: 14px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.calc__expression-history-item-expression {
+  font-size: 1.25rem;
+  color: var(--secondary);
+  margin: 0;
+}
+
+.calc__expression-history-item-result {
+  margin-top: 5px;
+  color: var(--accent);
+  font-size: 1.5rem;
+}

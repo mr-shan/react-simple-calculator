@@ -1,0 +1,45 @@
+.calc__history-button {
+  position: fixed;
+  left: 1.5rem;
+  top: 1.25rem;
+  outline: none;
+  background: none;
+  border: none;
+  width: 2rem;
+  height: 2.25rem;
+  padding: 0;
+  margin: 0;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.calc__history-button span {
+  background: var(--accent-2);
+  height: 4px;
+  border-radius: 5px;
+  display: block;
+  margin: 7px 0;
+  transition: all 0.25s ease-out;
+}
+
+.calc__history-button-bar2 {
+  width: 80%;
+}
+
+.calc__history-button-bar3 {
+  width: 90%;
+}
+
+.calc__history-button-bar1-open {
+  transform: translateY(11px) rotateZ(-45deg);
+  width: 100%;
+}
+
+.calc__history-button-bar2-open {
+  opacity: 0;
+}
+
+.calc__history-button-bar3-open {
+  transform: translateY(-11px) rotateZ(45deg);
+  width: 100%;
+}

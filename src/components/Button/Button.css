@@ -75,40 +75,6 @@
   padding-bottom: 6px;
 }
 
-.calc__history-button {
-  position: absolute;
-  left: 18px;
-  top: 18px;
-  outline: none;
-  background: none;
-  border: none;
-  width: 2rem;
-  height: 1.5rem;
-  padding: 0;
-  margin: 0;
-}
-
-.calc__history-button span {
-  background: var(--accent-2);
-  width: 100%;
-  height: 3px;
-  border-radius: 5px;
-  display: block;
-  margin: 6px 0;
-}
-
-.calc_history-button-close {
-  position: fixed;
-  left: 1rem;
-  top: 0.74rem;
-  color: var(--accent);
-  background: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  font-size: 2.5rem;
-}
-
 @media screen and (min-width: 500px) {
   .calc-num-button span {
     font-size: 2.4rem;

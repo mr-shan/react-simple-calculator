@@ -73,7 +73,7 @@ class Calculator {
   addHistoricalResult(result: number) {
     const operationLength = this.operationsInProgress.length - 1;
     const mostRecentOp = this.operationsInProgress[operationLength]
-    if (mostRecentOp?.type === 'number') return false;
+    if (mostRecentOp?.type === 'number' || mostRecentOp?.type === 'bracketClose') return false;
     this.currentNumber = ''
     result.toString().split('').forEach((char: string) => {
       const sanitizedChar = sanitize(char);

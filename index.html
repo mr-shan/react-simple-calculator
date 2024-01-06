@@ -11,17 +11,37 @@
     <meta name="theme-color" content="#000000" />
     <title>Simple Calculator</title>
     <script>
-      const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
-      if (darkThemeMq.matches) {
-        document.documentElement.setAttribute('data-theme', 'dark');
+      window.themes = {
+        'dark': '#101010',
+        'light': '#eee'
+      }
+
+      window.setTheme = function(theme) {
+        localStorage.setItem('theme', theme)
+        document.documentElement.setAttribute('data-theme', theme);
         document
-          .querySelector('meta[name="theme-color"]')
-          .setAttribute('content', '#101010');
+        .querySelector('meta[name="theme-color"]')
+        .setAttribute('content', window.themes[theme]);
+      }
+
+      window.setAutoTheme = function() {
+        const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
+        if (darkThemeMq.matches) {
+          localStorage.setItem('theme', 'dark')
+          window.setTheme('dark');
+        } else {
+          localStorage.setItem('theme', 'light')
+          window.setTheme('light');
+        }
+      }
+
+      const preferredTheme = localStorage.getItem('preferredTheme');
+
+      if (!preferredTheme || preferredTheme === 'auto') {
+        localStorage.setItem('preferredTheme', 'auto');
+        window.setAutoTheme();
       } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        document
-          .querySelector('meta[name="theme-color"]')
-          .setAttribute('content', '#eee');
+        window.setTheme(preferredTheme)
       }
     </script>
   </head>
