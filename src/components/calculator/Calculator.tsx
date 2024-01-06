@@ -15,7 +15,6 @@ const calcObj = new Calculator();
 export default () => {
   const [result, setResult] = React.useState(NaN);
   const [expression, setExpression] = React.useState("");
-  const [showNav, setshowNav] = React.useState(false);
 
   const clearResult = () => {
     calcObj.clearResult();
@@ -43,33 +42,12 @@ export default () => {
     setExpression("");
   };
 
-  const toggleNav = () => {
-    if (showNav) {
-      closeNav();
-      return;
-    }
-    setshowNav((state: boolean) => (state = !state));
-  };
-
-  const closeNav = () => {
-    document
-      .querySelector(".calc__navigation-bar-content")
-      ?.classList.add("calc__navigation-bar-content-out");
-    document
-      .querySelector(".calc__navigation-bar-backdrop")
-      ?.classList.add("calc__navigation-bar-backdrop-out");
-    setTimeout(() => {
-      setshowNav(false);
-    }, 220);
-  };
-
   const historyItemClickHandler = (result: number) => {
     const isResultAdded = calcObj.addHistoricalResult(result);
     if (!isResultAdded) return;
     setResult(NaN);
     calcObj.calculateResult();
     setExpression(calcObj.expression);
-    toggleNav();
   };
 
   return (
@@ -93,8 +71,6 @@ export default () => {
       <Navigation 
         calculationHistory={calcObj.calculationHistory}
         historyItemClickHandler={historyItemClickHandler}
-        showNav={showNav}
-        toggleNav={toggleNav}
       />
     </div>
   );
