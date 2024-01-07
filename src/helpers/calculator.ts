@@ -197,7 +197,10 @@ class Calculator {
   saveCalculation(resultData: IOperation) {
     this.calculationHistory.push(resultData);
     this.saveLastResult(resultData.result.toString());
-    this.calculatorDb.addCalculation(resultData);
+    // setting up timeout to improve the performance of css animation and delay db operations
+    setTimeout(() => {
+      this.calculatorDb.addCalculation(resultData);
+    }, 250)
   }
 
   removeLastInput() {
