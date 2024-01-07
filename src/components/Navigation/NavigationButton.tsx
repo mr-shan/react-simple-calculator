@@ -1,4 +1,3 @@
-import React from "react";
 import "./NavigationButton.css";
 
 interface IProps {
@@ -11,7 +10,6 @@ const BurgerIcon = (props: IProps) => {
   const clickHandler = () => {
     props.showNav ? props.closeHistory() : props.toggleHistory();
   };
-  console.log(props.showNav)
   return (
     <button className="calc__history-button" onClick={clickHandler}>
       <span
@@ -39,7 +37,4 @@ const BurgerIcon = (props: IProps) => {
   );
 };
 
-export default React.memo(
-  BurgerIcon,
-  (prevState, newState) => prevState.showNav === newState.showNav
-);
+export default BurgerIcon

@@ -84,7 +84,7 @@
     font-size: 2.6rem;
   }
 
-  .secondary span {
+  .secondary span, .parenthesis span {
     font-size: 2.2rem;
   }
 }

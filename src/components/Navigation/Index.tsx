@@ -1,23 +1,21 @@
 import React from "react";
 
-import { IOperation } from "../../helpers/calculator";
 import NavigationButton from "./NavigationButton";
 import NavigationContent from "./NavigationContent";
 
 interface IProps {
   historyItemClickHandler: any;
-  calculationHistory: IOperation[];
 }
 
 export default (props: IProps) => {
-  const [showNav, setshowNav] = React.useState(false);
+  const [showNav, setShowNav] = React.useState(false);
 
   const toggleNav = () => {
     if (showNav) {
       closeNav();
       return;
     }
-    setshowNav((state: boolean) => (state = !state));
+    setShowNav((state: boolean) => (state = !state));
   };
 
   const closeNav = () => {
@@ -28,7 +26,7 @@ export default (props: IProps) => {
       .querySelector(".calc__navigation-bar-backdrop")
       ?.classList.add("calc__navigation-bar-backdrop-out");
     setTimeout(() => {
-      setshowNav(false);
+      setShowNav(false);
     }, 220);
   };
 
@@ -48,7 +46,6 @@ export default (props: IProps) => {
         <NavigationContent
           onHistoryItemClick={historyItemClickHandler}
           closeHistory={toggleNav}
-          calculationHistory={props.calculationHistory}
         />
       )}
     </>

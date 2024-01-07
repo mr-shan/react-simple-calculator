@@ -1,26 +1,34 @@
-import React from "react";
+import React from 'react';
 
-import Calculator from "../../helpers/calculator";
+import Expression from './Expression';
+import Result from './Result';
+import InputButtons from './InputButtons';
+import KeyPressHelper from './KeyPressHelper';
+import Navigation from './../Navigation/Index';
 
-import Expression from "./Expression";
-import Result from "./Result";
-import InputButtons from "./InputButtons";
-import KeyPressHelper from "./KeyPressHelper";
-import Navigation from "./../Navigation/Index"
+import './Calculator.css';
 
-import "./Calculator.css";
-
-const calcObj = new Calculator();
+import { CalculatorContext } from '../../App';
 
 export default () => {
   const [result, setResult] = React.useState(NaN);
-  const [expression, setExpression] = React.useState("");
+  const [expression, setExpression] = React.useState('');
+  const [navKey, setNavKey] = React.useState(Math.random.toString())
+  const calcObj = React.useContext(CalculatorContext);
 
   const clearResult = () => {
     calcObj.clearResult();
     setResult(NaN);
-    setExpression("");
+    setExpression('');
   };
+
+  React.useEffect(() => {
+    const loadCalculatorHistory = async () => {
+      await calcObj.loadCalculations();
+      setNavKey(Math.random.toString())
+    };
+    loadCalculatorHistory();
+  }, []);
 
   const onClick = (event: any) => {
     const isInputAdded = calcObj.addInput(event);
@@ -39,7 +47,7 @@ export default () => {
     const resultData = calcObj.showResult();
     if (!resultData) return;
     setResult(resultData.result);
-    setExpression("");
+    setExpression('');
   };
 
   const historyItemClickHandler = (result: number) => {
@@ -50,8 +58,10 @@ export default () => {
     setExpression(calcObj.expression);
   };
 
+  const calculationsHistory = [...calcObj.calculationHistory];
+
   return (
-    <div className="calc__container">
+    <div className='calc__container'>
       <Expression
         expression={expression}
         expressionLength={calcObj.expressionLength}
@@ -68,8 +78,8 @@ export default () => {
         handleBackspace={handleBackspace}
         showResult={showResult}
       />
-      <Navigation 
-        calculationHistory={calcObj.calculationHistory}
+      <Navigation
+        key={navKey}
         historyItemClickHandler={historyItemClickHandler}
       />
     </div>

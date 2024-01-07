@@ -18,10 +18,53 @@ export default defineConfig({
         "theme_color": "ff8f00",
         "icons": [
           {
-            "src": "/icon.png",
-            "sizes": "1024x1024",
-            "type": "image/png"
-          }
+            "src": "/icons/icon_48.png",
+            "sizes": "48x48",
+            "type": "image/png",
+            "purpose": "any"
+          },
+          {
+            "src": "/icons/icon_72.png",
+            "sizes": "72x72",
+            "type": "image/png",
+            "purpose": "any"
+          },
+          {
+            "src": "/icons/icon_98.png",
+            "sizes": "98x98",
+            "type": "image/png",
+            "purpose": "any"
+          },
+          {
+            "src": "/icons/icon_180.png",
+            "sizes": "180x180",
+            "type": "image/png",
+            "purpose": "any"
+          },
+          {
+            "src": "/icons/icon_192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+          },
+          {
+            "src": "/icons/icon_512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+          },
+          {
+            "src": "/icons/maskable_icon_512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+          },
+          {
+            "src": "assets/icon.png",
+            "sizes": "512x512, 1024x1024",
+            "type": "image/png",
+            "purpose": "maskable any"
+          },
         ]
       },
       workbox: {

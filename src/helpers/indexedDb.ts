@@ -21,8 +21,8 @@ class CalculatorDatabase extends Dexie {
     return data;
   }
 
-  async cleanAllCalculationData() {
-    this.calculations.clear()
+  cleanAllCalculationData() {
+    return this.calculations.clear()
   }
 }
 
