@@ -1,5 +1,6 @@
 :root {
   --bg-1: #101010;
+  --bg-2: #101010;
   --box-shadow1: black;
   --box-shadow2: #333;
 
@@ -22,6 +23,7 @@
 
 [data-theme="light"] {
   --bg-1: #eee;
+  --bg-2: #eee;
   --box-shadow1: white;
   --box-shadow2: #bbb;
 
@@ -42,11 +44,12 @@
 }
 
 [data-theme="classic"] {
-  --bg-1: #eee;
+  --bg-1: #d5594a;
+  --bg-2: #f9ebd1;
   --box-shadow1: transparent;
-  --box-shadow2: transparent;
+  --box-shadow2: #af9568;
 
-  --accent: #333;
+  --accent: #eee;
   --accent-2: #f9ebd1;
   --accent-bg: #5b958b;
 

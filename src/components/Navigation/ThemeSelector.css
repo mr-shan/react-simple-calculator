@@ -30,7 +30,7 @@
     border: none;
     outline: none;
     user-select: none;
-    padding: 8px 1rem;
+    padding: 8px 0.5rem;
     font-size: 1rem;
     cursor: pointer;
     width: 100%;
@@ -45,4 +45,11 @@
 .calc-theme-selector__selected-btn {
     background-color: var(--accent-2) !important;
     color: var(--bg-1) !important;
+}
+
+@media screen and (max-width: 350px) {
+    .calc-theme-selector__btns-wrapper button {
+        font-size: 0.9rem;
+        padding: 8px 0;
+    }
 }

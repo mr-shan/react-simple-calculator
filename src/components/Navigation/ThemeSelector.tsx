@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 
 import "./ThemeSelector.css";
 
-type Themes = "auto" | "dark" | "light";
+type Themes = "auto" | "dark" | "light" | "classic";
 
 export default () => {
   const [selectedTheme, setSelectedTheme] = useState<Themes>("auto");
-  const buttons: Themes[] = ["auto", "dark", "light"];
+  const buttons: Themes[] = ["auto", "dark", "light", "classic"];
 
   const themeChangeHandler = (theme: Themes) => {
     localStorage.setItem("preferredTheme", theme);
