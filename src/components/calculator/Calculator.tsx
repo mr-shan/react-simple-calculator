@@ -33,8 +33,9 @@ export default () => {
   const onClick = (event: any) => {
     const isInputAdded = calcObj.addInput(event);
     if (isInputAdded) setResult(NaN);
-    calcObj.calculateResult();
-    setExpression(calcObj.expression);
+    calcObj.calculateResult().then(() => {
+      setExpression(calcObj.expression);
+    });
   };
 
   const handleBackspace = () => {
@@ -43,8 +44,8 @@ export default () => {
     calcObj.calculateResult();
   };
 
-  const showResult = () => {
-    const resultData = calcObj.showResult();
+  const showResult = async () => {
+    const resultData = await calcObj.showResult();
     if (!resultData) return;
     setResult(resultData.result);
     setExpression('');
@@ -54,11 +55,10 @@ export default () => {
     const isResultAdded = calcObj.addHistoricalResult(result);
     if (!isResultAdded) return;
     setResult(NaN);
-    calcObj.calculateResult();
-    setExpression(calcObj.expression);
+    calcObj.calculateResult().then(() => {
+      setExpression(calcObj.expression);
+    });
   };
-
-  const calculationsHistory = [...calcObj.calculationHistory];
 
   return (
     <div className='calc__container'>

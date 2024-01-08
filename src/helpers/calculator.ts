@@ -154,11 +154,11 @@ class Calculator {
     this.expressionLength = this.expression.toString().length;
   }
 
-  calculateResult() {
+  async calculateResult() {
     if (!this.operationsInProgress.find((e) => e.type === 'operator')) {
       this.result = 0;
       this.hasCalculationPerformed = false;
-      return;
+      return false;
     }
 
     try {
@@ -178,9 +178,10 @@ class Calculator {
       this.hasCalculationPerformed = false;
       this.currentNumber = '';
     }
+    return true
   }
 
-  showResult() {
+  async showResult() {
     if (this.isError || !this.hasCalculationPerformed) return null;
 
     const resultData = {
