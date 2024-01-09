@@ -6,7 +6,6 @@ const calcObj = new Calculator();
 export const CalculatorContext = createContext(calcObj);
 
 function App() {
-
   return (
     <CalculatorContext.Provider value={calcObj}>
       <div className='app'>

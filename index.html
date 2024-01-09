@@ -28,15 +28,25 @@
       content="A simple calculator with better design than Apple's default calculator."
     />
     <meta
-      property="description"
+      name="description"
       content="A simple calculator with better design than Apple's default calculator."
     />
     <title>Simple Calculator</title>
+    <script>
+      if ('serviceWorker' in window.navigator) {
+        window.addEventListener('load', () => {
+          console.log('Inside window load');
+          navigator.serviceWorker.register('serviceWorker.js', { scope: '/' });
+        });
+      } else {
+        console.error('No browser support for service worker found.');
+      }
+    </script>
     <script defer>
       window.themes = {
         dark: '#101010',
         light: '#eee',
-        classic: '#d5594a'
+        classic: '#d5594a',
       };
 
       window.setTheme = function (theme) {
@@ -71,5 +81,75 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <div class="calculator-pwa_install-prompt-container" style="display: none">
+      <div class="calculator-pwa_install-prompt-backdrop"></div>
+      <img src="/icons/1024.png" width="120" />
+      <h3 style="color: var(--accent)">Install Calculator</h3>
+      <p style="color: var(--accent); line-height: 1.6; margin-bottom: 10px">
+        Install this app as a progressive web app on your device to have the
+        best experience!
+      </p>
+      <br />
+      <div class="calculator-pwa_install-prompt-btns">
+        <button
+          class="calculator-pwa_install-prompt-btn-cancel"
+          onclick="onCancelInstall()"
+        >
+          Cancel
+        </button>
+        <button
+          class="calculator-pwa_install-prompt-btn-install"
+          onclick="onInstallClick()"
+        >
+          Install
+        </button>
+      </div>
+    </div>
+    <script defer>
+      let deferredPrompt = null;
+      function getPWADisplayMode() {
+        const isStandalone = window.matchMedia(
+          '(display-mode: standalone)'
+        ).matches;
+        if (document.referrer.startsWith('android-app://')) {
+          return 'twa';
+        } else if (navigator.standalone || isStandalone) {
+          return 'standalone';
+        }
+        return 'browser';
+      }
+      function onInstallClick() {
+        document.querySelector(
+          '.calculator-pwa_install-prompt-container'
+        ).style.display = 'none';
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((data) => {
+          localStorage.setItem('pwaInstallation', data.outcome);
+        });
+      }
+      function onCancelInstall() {
+        localStorage.setItem('pwaInstallation', 'dismissed');
+        document.querySelector(
+          '.calculator-pwa_install-prompt-container'
+        ).style.display = 'none';
+      }
+      window.addEventListener('beforeinstallprompt', (event) => {
+        event.preventDefault();
+        deferredPrompt = event;
+        const existingOutcome = localStorage.getItem('pwaInstallation');
+        if (
+          getPWADisplayMode() === 'browser' &&
+          deferredPrompt &&
+          !existingOutcome
+        ) {
+          setTimeout(() => {
+            document.querySelector(
+              '.calculator-pwa_install-prompt-container'
+            ).style.display = 'block';
+          }, 1000);
+        }
+        return false;
+      });
+    </script>
   </body>
 </html>

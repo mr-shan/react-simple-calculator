@@ -18,6 +18,7 @@ const Button = ({ details, onClick }:IProps) => {
     <button
       className={classes.toString().replaceAll(',', ' ')}
       onClick={onClickHandler}
+      aria-label={details.label}
     >
       <span dangerouslySetInnerHTML={{__html: cachedDetails.label}}></span>
     </button>

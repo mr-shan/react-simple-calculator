@@ -11,7 +11,7 @@ const BurgerIcon = (props: IProps) => {
     props.showNav ? props.closeHistory() : props.toggleHistory();
   };
   return (
-    <button className="calc__history-button" onClick={clickHandler}>
+    <button className="calc__history-button" onClick={clickHandler} aria-label="Options" title='Options'>
       <span
         className={
           props.showNav

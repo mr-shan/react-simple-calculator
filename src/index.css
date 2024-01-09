@@ -68,3 +68,52 @@ button, input {
   height: 100dvh;
   width: 100dvw;
 }
+
+/* Styles related to installation prompt */
+.calculator-pwa_install-prompt-container {
+  position: absolute;
+  width: 75%;
+  height: 60%;
+  max-width: 22rem;
+  max-height: 22rem;
+  background-color: var(--bg-1);
+  box-shadow: 0px 0px 15px 1px var(--accent);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  animation: come-in 0.25s ease-out forwards;
+}
+.calculator-pwa_install-prompt-btn-cancel {
+  border: solid 1px var(--accent);
+  padding: 0.5rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: var(--accent);
+  margin-right: 0.5rem;
+}
+.calculator-pwa_install-prompt-btn-install {
+  border: solid 1px var(--primary);
+  padding: 0.5rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: var(--primary);
+  color: var(--primary-text);
+  font-weight: bold;
+}
+
+@keyframes come-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
