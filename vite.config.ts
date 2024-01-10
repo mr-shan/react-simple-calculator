@@ -62,6 +62,7 @@ export default defineConfig({
         ],
         "start_url": "/",
         "display": "standalone",
+        "background_color": "#eeeeee",
         "theme_color": "#ff8f00",
         "prefer_related_applications": false,
         "icons": [
@@ -73,6 +74,11 @@ export default defineConfig({
           {
             "src": "/icons/64.png",
             "sizes": "64x64",
+            "type": "image/png",
+          },
+          {
+            "src": "/icons/128.png",
+            "sizes": "128x128",
             "type": "image/png",
           },
           {
@@ -104,12 +110,6 @@ export default defineConfig({
             "src": "/icons/1024.png",
             "sizes": "1024x1024",
             "type": "image/png",
-          },
-          {
-            "src": "/icons/1024.png",
-            "sizes": "1024x1024",
-            "type": "image/png",
-            "purpose": 'maskable'
           }
         ]
       },

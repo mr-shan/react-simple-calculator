@@ -19,6 +19,7 @@ export default (props: IProps) => {
           onHistoryItemClick={props.onHistoryItemClick}
         />
         <ThemeSelector />
+        <div>Version: 1.0.0</div>
       </div>
     </>
   );
