@@ -1,6 +1,5 @@
 .calc__expression-history-container {
   position: relative;
-  margin-top: 4rem;
   height: 70%;
   width: 100%;
   padding: 0 1rem;
@@ -25,16 +24,16 @@
 .calc__expression-history-header button {
   color: var(--accent);
   font-size: 1rem;
-  background: var(--box-shadow2);
-  border-radius: 10px;
-  border: none;
+  background: transparent;
+  border-radius: 20px;
+  border: solid 1px var(--accent);
   padding: 8px 1rem;
   cursor: pointer;
 }
 
 .calc__expression-history-items {
   position: relative;
-  height: 100%;
+  height: 98%;
   overflow-y: auto;
   padding: 1rem;
   padding-right: 1.25rem;
@@ -64,18 +63,18 @@
 
 @media screen and (max-height: 780px) {
   .calc__expression-history-items {
-    height: 95%;
+    height: 90%;
   }
 }
 
 @media screen and (max-height: 680px) {
   .calc__expression-history-items {
-    height: 90%;
+    height: 85%;
   }
 }
 
 @media screen and (max-height: 580px) {
   .calc__expression-history-items {
-    height: 85%;
+    height: 80%;
   }
 }

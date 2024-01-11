@@ -8,7 +8,7 @@ interface IProps {
 }
 
 export default (props: IProps) => {
-  const [showNav, setShowNav] = React.useState(false);
+  const [showNav, setShowNav] = React.useState(true);
 
   const toggleNav = () => {
     if (showNav) {

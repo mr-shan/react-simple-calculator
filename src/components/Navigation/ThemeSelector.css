@@ -1,55 +1,57 @@
 .calc-theme-selector__container {
-    align-self: flex-start;
-    width: 100%;
-    text-align: start;
-    padding: 1rem;
-    padding-bottom: 2rem;
-    margin-top: auto;
-    align-items: center;
-    width: 100%;
+  align-self: flex-start;
+  width: 100%;
+  text-align: start;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  margin-top: 4rem;
+  align-items: center;
+  width: 100%;
 }
 
 .calc-theme-selector__container h4 {
-    text-align: start;
-    margin: 0;
-    margin-bottom: 0.75rem;
-    margin-left: 0.5rem;
-    padding: 0;
-    color: var(--accent);
+  text-align: start;
+  margin: 0;
+  margin-bottom: 0.75rem;
+  margin-left: 0.5rem;
+  padding: 0;
+  color: var(--accent);
 }
 
 .calc-theme-selector__btns-wrapper {
-    border-radius: 20px;
-    overflow: hidden;
-    display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  border: solid 1px var(--accent);
 }
 
 .calc-theme-selector__btns-wrapper button {
-    background: var(--box-shadow2);
-    color: var(--accent-2);
-    border: none;
-    outline: none;
-    user-select: none;
-    padding: 8px 0.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    width: 100%;
-    text-transform: capitalize;
-    transition: all 0.25s ease-out;
+  color: var(--accent-2);
+  border: none;
+  outline: none;
+  user-select: none;
+  padding: 8px 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  text-transform: capitalize;
+  transition: all 0.25s ease-out;
+  border-radius: 20px;
 }
 .calc-theme-selector__btns-wrapper button:hover,
 .calc-theme-selector__btns-wrapper button:active {
-    background-color: var(--secondary-box-shadow1)
+  background-color: var(--secondary);
 }
 
-.calc-theme-selector__selected-btn {
-    background-color: var(--accent-2) !important;
-    color: var(--bg-1) !important;
+.calc-theme-selector__selected-btn {  
+  color: var(--accent) !important;
+  background: var(--box-shadow2) !important;
+  border: solid 1px var(--accent) !important;
 }
 
 @media screen and (max-width: 350px) {
-    .calc-theme-selector__btns-wrapper button {
-        font-size: 0.9rem;
-        padding: 8px 0;
-    }
+  .calc-theme-selector__btns-wrapper button {
+    font-size: 0.9rem;
+    padding: 8px 0;
+  }
 }
