@@ -3,7 +3,7 @@
   width: 100%;
   text-align: start;
   padding: 1rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1.5rem;
   margin-top: 4rem;
   align-items: center;
   width: 100%;
@@ -27,7 +27,7 @@
 
 .calc-theme-selector__btns-wrapper button {
   color: var(--accent-2);
-  border: none;
+  border: solid 1px transparent;
   outline: none;
   user-select: none;
   padding: 8px 0.5rem;
