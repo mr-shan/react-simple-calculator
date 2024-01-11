@@ -1,28 +1,53 @@
-import Dexie from 'dexie';
+import { openDB, IDBPDatabase } from 'idb';
 
 import { IOperation } from './calculator';
 
-class CalculatorDatabase extends Dexie {
-  calculations!: Dexie.Table<IOperation, string>;
+class CalculatorDatabase {
+  openDatabase() {
+    return openDB('calc-db', 1, {
+      upgrade(db: IDBPDatabase) {
+        if (!db.objectStoreNames.contains('calculatorOperations'))
+          db.createObjectStore('calculatorOperation', {
+            keyPath: 'id',
+            autoIncrement: true,
+          });
+      },
+    });
+  }
 
-  constructor () {
-      super("CalculatorDatabase");
-      this.version(1).stores({
-        calculations: '++id, result, expression',
-      });
+  async addItem(item: IOperation) {
+    const db = await this.openDatabase();
+    const tx = db.transaction('calculatorOperation', 'readwrite');
+    await tx.store.put(item);
+    await tx.done;
+  }
+
+  async getAllItems() {
+    const db = await this.openDatabase();
+    const tx = db.transaction('calculatorOperation', 'readonly');
+    const allItems = await tx.store.getAll();
+    await tx.done;
+    return allItems;
+  }
+
+  async cleanDb() {
+    const db = await this.openDatabase();
+    const tx = db.transaction('calculatorOperation', 'readwrite');
+    await tx.store.clear();
+    await tx.done;
   }
 
   async addCalculation(calculation: IOperation) {
-    this.calculations.add(calculation)
+    await this.addItem(calculation);
   }
 
   async fetchAllCalculations() {
-    const data: IOperation[] = await this.calculations.toArray()
+    const data = await this.getAllItems();
     return data;
   }
 
   cleanAllCalculationData() {
-    return this.calculations.clear()
+    return this.cleanDb();
   }
 }
 
