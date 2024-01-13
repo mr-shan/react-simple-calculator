@@ -26,7 +26,7 @@ export default (props: IProps) => {
             bottom: '5px',
           }}
         >
-          Version: 1.2.3
+          Version: 1.2.4
         </div>
       </div>
     </>

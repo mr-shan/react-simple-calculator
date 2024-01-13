@@ -3,6 +3,20 @@ import { openDB, IDBPDatabase } from 'idb';
 import { IOperation } from './calculator';
 
 class CalculatorDatabase {
+  openDbPromise: Promise<IDBPDatabase>;
+
+  constructor() {
+    this.openDbPromise = openDB('calc-db', 1, {
+      upgrade(db: IDBPDatabase) {
+        if (!db.objectStoreNames.contains('calculatorOperations'))
+          db.createObjectStore('calculatorOperation', {
+            keyPath: 'id',
+            autoIncrement: true,
+          });
+      },
+    });
+  }
+
   openDatabase() {
     return openDB('calc-db', 1, {
       upgrade(db: IDBPDatabase) {
@@ -16,14 +30,14 @@ class CalculatorDatabase {
   }
 
   async addItem(item: IOperation) {
-    const db = await this.openDatabase();
+    const db = await this.openDbPromise;
     const tx = db.transaction('calculatorOperation', 'readwrite');
     await tx.store.put(item);
     await tx.done;
   }
 
   async getAllItems() {
-    const db = await this.openDatabase();
+    const db = await this.openDbPromise;
     const tx = db.transaction('calculatorOperation', 'readonly');
     const allItems = await tx.store.getAll();
     await tx.done;
@@ -31,7 +45,7 @@ class CalculatorDatabase {
   }
 
   async cleanDb() {
-    const db = await this.openDatabase();
+    const db = await this.openDbPromise;
     const tx = db.transaction('calculatorOperation', 'readwrite');
     await tx.store.clear();
     await tx.done;
