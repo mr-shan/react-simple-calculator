@@ -32,16 +32,6 @@
       content="A simple calculator with better design than Apple's default calculator."
     />
     <title>Simple Calculator</title>
-    <script>
-      if ('serviceWorker' in window.navigator) {
-        window.addEventListener('load', () => {
-          console.log('Inside window load');
-          navigator.serviceWorker.register('serviceWorker.js', { scope: '/' });
-        });
-      } else {
-        console.error('No browser support for service worker found.');
-      }
-    </script>
     <script defer>
       window.themes = {
         dark: '#101010',

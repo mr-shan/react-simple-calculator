@@ -1,5 +1,4 @@
 @import url('./assets/styles.css');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
 :root, button {
   font-family: 'Roboto', system-ui, 'Roboto', Helvetica, sans-serif;
@@ -38,29 +37,6 @@ button, input {
   -ms-user-select: none;
    user-select: none;
 }
-/* 
-::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: 0px 0px 6px #000 inset;
-	background-color: #333;
-  box-shadow: 0px 0px 6px #000 inset;
-	border-radius: 20px;
-}
-
-::-webkit-scrollbar
-{
-	width: 10px;
-  border-radius: 20px;
-	background-color: #333;
-  box-shadow: 0px 0px 6px #000 inset;
-}
-
-::-webkit-scrollbar-thumb
-{
-  border-radius: 10px;
-  box-shadow: 0px 0px 5px #111 inset;
-	background-color: #444;
-} */
 
 .app {
   height: 100vh;

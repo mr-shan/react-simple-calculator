@@ -14,12 +14,17 @@ export default (props: IProps) => {
   };
 
   React.useEffect(() => {
-    const wrapper = document.querySelector(
-      '.calc__expression-history-items'
-    );
-    if (wrapper) {
-      wrapper.scrollTop = wrapper.scrollHeight;
-    }
+    const loadCalculatorHistory = async () => {
+      await calcObj.loadCalculations();
+      forceUpdate()
+      const wrapper = document.querySelector(
+        '.calc__expression-history-items'
+      );
+      if (wrapper) {
+        wrapper.scrollTop = wrapper.scrollHeight;
+      }
+    };
+    loadCalculatorHistory();
   }, []);
   
   const clearHistory = async () => {

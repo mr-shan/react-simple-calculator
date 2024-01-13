@@ -122,4 +122,12 @@ export default defineConfig({
   server: {
     port: 3000,
   },
+  build: {
+    cssMinify: true,
+    minify: true,
+    modulePreload: {
+      polyfill: false
+    }
+  },
+  
 })

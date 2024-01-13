@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 
-import Expression from './Expression';
-import Result from './Result';
 import InputButtons from './InputButtons';
-import KeyPressHelper from './KeyPressHelper';
-import Navigation from './../Navigation/Index';
+
+// import Expression from './Expression';
+// import Result from './Result';
+// import KeyPressHelper from './KeyPressHelper';
+// import Navigation from './../Navigation/Index';
+
+const Expression = lazy(() => import('./Expression'));
+const Result = lazy(() => import('./Result'));
+const KeyPressHelper = lazy(() => import('./KeyPressHelper'));
+const Navigation = lazy(() => import('./../Navigation/Index'));
 
 import './Calculator.css';
 
@@ -13,7 +19,6 @@ import { CalculatorContext } from '../../App';
 export default () => {
   const [result, setResult] = React.useState(NaN);
   const [expression, setExpression] = React.useState('');
-  const [navKey, setNavKey] = React.useState(Math.random.toString())
   const calcObj = React.useContext(CalculatorContext);
 
   const clearResult = () => {
@@ -21,14 +26,6 @@ export default () => {
     setResult(NaN);
     setExpression('');
   };
-
-  React.useEffect(() => {
-    const loadCalculatorHistory = async () => {
-      await calcObj.loadCalculations();
-      setNavKey(Math.random.toString())
-    };
-    loadCalculatorHistory();
-  }, []);
 
   const onClick = (event: any) => {
     const isInputAdded = calcObj.addInput(event);
@@ -62,26 +59,30 @@ export default () => {
 
   return (
     <div className='calc__container'>
-      <Expression
-        expression={expression}
-        expressionLength={calcObj.expressionLength}
-      />
-      <Result tempValue={calcObj.result} result={result} />
+      <Suspense fallback={<div>loading...</div>}>
+        <Expression
+          expression={expression}
+          expressionLength={calcObj.expressionLength}
+        />
+        <Result tempValue={calcObj.result} result={result} />
+      </Suspense>
+
       <InputButtons
         clearResult={clearResult}
         onClick={onClick}
         handleBackspace={handleBackspace}
         showResult={showResult}
       />
-      <KeyPressHelper
-        onKeyDown={onClick}
-        handleBackspace={handleBackspace}
-        showResult={showResult}
-      />
-      <Navigation
-        key={navKey}
-        historyItemClickHandler={historyItemClickHandler}
-      />
+      <Suspense fallback={<div>loading...</div>}>
+        <KeyPressHelper
+          onKeyDown={onClick}
+          handleBackspace={handleBackspace}
+          showResult={showResult}
+        />
+        <Navigation
+          historyItemClickHandler={historyItemClickHandler}
+        />
+      </Suspense>
     </div>
   );
 };
