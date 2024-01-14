@@ -39,10 +39,9 @@ const Result = (props: IProps) => {
   );
 };
 
-// export default memo(Result, (prevProps: IProps, nextProps: IProps) => {
-//   return (
-//     prevProps.tempValue == nextProps.tempValue ||
-//     prevProps.result === nextProps.result
-//   );
-// });
-export default Result
+export default memo(Result, (prevProps: IProps, nextProps: IProps) => {
+  return (
+    prevProps.tempValue == nextProps.tempValue &&
+    prevProps.result === nextProps.result
+  );
+});

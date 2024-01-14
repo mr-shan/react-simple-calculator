@@ -19,7 +19,7 @@
   /* blur related */
   backdrop-filter: blur(2.5rem);
   -webkit-backdrop-filter: blur(2.5rem);
-  box-shadow: 0px 0px 15px var(--accent-2);
+  box-shadow: 0px 0px 15px 1px var(--accent);
 }
 
 .calc__navigation-bar-content-out {

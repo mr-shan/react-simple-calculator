@@ -51,11 +51,13 @@ button, input {
   width: 75%;
   height: 60%;
   max-width: 22rem;
-  max-height: 22rem;
-  background-color: var(--bg-1);
+  height: 21rem;
+  backdrop-filter: blur(2.5rem);
+  -webkit-backdrop-filter: blur(2.5rem);
   box-shadow: 0px 0px 15px 1px var(--accent);
   border-radius: 10px;
   padding: 1rem;
+  padding-top: 2.5rem;
   text-align: center;
   margin: auto;
   left: 0;

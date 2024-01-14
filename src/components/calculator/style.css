@@ -62,14 +62,20 @@
   align-content: center;
   align-items: center;
   padding: 0.8rem;
-  padding-top: 1rem;
-  padding-bottom: 2rem;
-  padding-bottom: calc(env(safe-area-inset-bottom) + 2rem);
+  padding-top: 1rem;  
   background-color: var(--bg-2);
 }
 
-/* @media screen and (max-height: 700px) {
+@media screen and (max-height: 700px) {
   .calc__input-buttons-wrapper {
     padding-bottom: 1rem;
   }
-} */
+}
+
+@media (display-mode: standalone) {
+  .calc__input-buttons-wrapper {
+    padding-bottom: 2rem;
+    padding-bottom: 2rem;
+    padding-bottom: calc(env(safe-area-inset-bottom) + 2rem);
+  }
+}
