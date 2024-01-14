@@ -89,9 +89,9 @@
   }
 }
 
-@media screen and (max-height: 800px) {
+@media screen and (max-height: 600px) {
   .calc-num-button {
-    width: 85%;
+    width: 90%;
   }
   .calc-num-button span {
     font-size: 2.4rem;
@@ -101,20 +101,5 @@
   }
   .secondary span, .parenthesis span {
     font-size: 2.2rem;
-  }
-}
-
-@media screen and (max-height: 600px) {
-  .calc-num-button {
-    width: 70%;
-  }
-  .calc-num-button span {
-    font-size: 2rem;
-  }
-  .accent span {
-    font-size: 2.2rem;
-  }
-  .secondary span, .parenthesis span {
-    font-size: 2rem;
   }
 }
