@@ -4,7 +4,7 @@ import "./ThemeSelector.css";
 
 type Themes = "auto" | "dark" | "light" | "classic";
 
-export default () => {
+export default ({closeNav} : {closeNav: any}) => {
   const [selectedTheme, setSelectedTheme] = useState<Themes>("auto");
   const buttons: Themes[] = ["auto", "dark", "light", "classic"];
 
@@ -16,6 +16,7 @@ export default () => {
       window.setTheme(theme);
     }
     setSelectedTheme(theme);
+    closeNav()
   };
 
   useEffect(() => {

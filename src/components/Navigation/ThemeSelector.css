@@ -22,7 +22,7 @@
   border-radius: 20px;
   overflow: hidden;
   display: flex;
-  border: solid 1px var(--accent);
+  border: solid 1px var(--box-shadow2);
 }
 
 .calc-theme-selector__btns-wrapper button {
@@ -37,16 +37,17 @@
   text-transform: capitalize;
   transition: all 0.25s ease-out;
   border-radius: 20px;
+  background: transparent;
 }
 .calc-theme-selector__btns-wrapper button:hover,
 .calc-theme-selector__btns-wrapper button:active {
-  background-color: var(--secondary);
+  border: solid 1px var(--box-shadow2);
 }
 
 .calc-theme-selector__selected-btn {  
-  color: var(--accent) !important;
-  background: var(--box-shadow2) !important;
-  border: solid 1px var(--accent) !important;
+  color: var(--accent-2) !important;
+  /* background: var(--box-shadow2) !important; */
+  border: solid 1px var(--accent-2) !important;
 }
 
 @media screen and (max-width: 350px) {

@@ -15,12 +15,13 @@ export default (props: IProps) => {
         onClick={props.closeHistory}
       ></div>
       <div className='calc__navigation-bar-content'>
-        <ThemeSelector />
+        {/* <div className='calc__navigation-bar-back-blur'></div> */}
+        <ThemeSelector closeNav={props.closeHistory}/>
         <CalculationHistory onHistoryItemClick={props.onHistoryItemClick} />
         <div
           style={{
             fontSize: '0.6rem',
-            color: 'var(--accent)',
+            color: 'var(--box-shadow2)',
             marginRight: '1rem',
             position: 'absolute',
             bottom: '5px',

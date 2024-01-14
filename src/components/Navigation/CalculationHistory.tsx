@@ -36,7 +36,7 @@ export default (props: IProps) => {
     <div className='calc__expression-history-container'>
       <div className="calc__expression-history-header">
         <h4>Calculation History</h4>
-        <button onClick={clearHistory}>Clear</button>
+        <button onClick={clearHistory}>&#xd7;</button>
       </div>
       <div className='calc__expression-history-items'>
         {calcObj.calculationHistory.map((item) => (
