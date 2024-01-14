@@ -7,7 +7,7 @@ interface IProps {
   historyItemClickHandler: any;
 }
 
-export default (props: IProps) => {
+const Navigation = (props: IProps) => {
   const [showNav, setShowNav] = React.useState(false);
 
   const toggleNav = () => {
@@ -51,3 +51,5 @@ export default (props: IProps) => {
     </>
   );
 };
+
+export default React.memo(Navigation, () => true)

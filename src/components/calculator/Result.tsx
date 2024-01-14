@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import './style.css';
 
 interface IProps {
@@ -5,7 +7,7 @@ interface IProps {
   tempValue: number;
 }
 
-export default (props: IProps) => {
+const Result = (props: IProps) => {
   const isFinalResult = !isNaN(props.result);
 
   let styleObj = null;
@@ -18,19 +20,29 @@ export default (props: IProps) => {
     if (resultLength > 15) styleObj.fontSize = '2.5rem';
     else if (resultLength > 10) styleObj.fontSize = '3rem';
     className = 'calc__result-text-final';
-    result = props.result
+    result = props.result;
   } else {
     styleObj = { fontSize: '2.5rem' };
     const resultLength = props.tempValue.toString().length;
     if (resultLength > 15) styleObj.fontSize = '1.5rem';
     else if (resultLength > 10) styleObj.fontSize = '2rem';
-    className = 'calc__result-text-temp'
-    result = props.tempValue
+    className = 'calc__result-text-temp';
+    result = props.tempValue;
   }
 
   return (
-    <div className="calc__result-wrapper">
-      <div className={className} style={styleObj}>{ result }</div>
+    <div className='calc__result-wrapper'>
+      <div className={className} style={styleObj}>
+        {result}
+      </div>
     </div>
   );
 };
+
+// export default memo(Result, (prevProps: IProps, nextProps: IProps) => {
+//   return (
+//     prevProps.tempValue == nextProps.tempValue ||
+//     prevProps.result === nextProps.result
+//   );
+// });
+export default Result

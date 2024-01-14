@@ -13,8 +13,6 @@ const KeyPressHelper = (props) => {
     props.onKeyDown(event.key);
   };
 
-  console.log("key press helper updated")
-
   useEffect(() => {
     document.addEventListener("keydown", keyPressHandler, false);
 

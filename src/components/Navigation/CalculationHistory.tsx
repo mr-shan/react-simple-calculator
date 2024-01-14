@@ -1,12 +1,13 @@
+import React from 'react';
+
 import './CalculationHistory.css';
 import { CalculatorContext } from '../../App';
-import React from 'react';
 
 interface IProps {
   onHistoryItemClick: any;
 }
 
-export default (props: IProps) => {
+const CalculatorHistory = (props: IProps) => {
   const [, forceUpdate] = React.useReducer(x => x + 1, 0);
   const calcObj = React.useContext(CalculatorContext)
   const historyItemClickHandler = (result: number) => {
@@ -60,3 +61,5 @@ export default (props: IProps) => {
     </div>
   );
 };
+
+export default React.memo(CalculatorHistory)

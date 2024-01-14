@@ -15,7 +15,6 @@ export default (props: IProps) => {
         onClick={props.closeHistory}
       ></div>
       <div className='calc__navigation-bar-content'>
-        {/* <div className='calc__navigation-bar-back-blur'></div> */}
         <ThemeSelector closeNav={props.closeHistory}/>
         <CalculationHistory onHistoryItemClick={props.onHistoryItemClick} />
         <div

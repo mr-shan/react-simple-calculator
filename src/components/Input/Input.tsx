@@ -5,6 +5,8 @@ import "./Input.css";
 export default (props) => {
   const inputRef = React.useRef();
 
+  console.log("Inside input")
+
   React.useEffect(()=> {
     setInputHeight();
   }, [props.value])

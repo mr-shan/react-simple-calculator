@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import Button from "../Button/Button";
 import './style.css'
 import CALCULATOR_KEYS from "../../helpers/calculatorKeys";
@@ -9,10 +11,12 @@ interface IProps {
   showResult: any,
 }
 
-export default (props: IProps) => {
+const InputButtons = (props: IProps) => {
   const onClick = (onClickHandler: string, operator: string) => {
     props[onClickHandler](operator);
   };
+
+  console.log("inside input buttons")
 
   return (
     <div className="calc__input-buttons-wrapper">
@@ -28,3 +32,5 @@ export default (props: IProps) => {
     </div>
   );
 };
+
+export default memo(InputButtons, () => true)

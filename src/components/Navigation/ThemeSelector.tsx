@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, memo } from "react";
 
 import "./ThemeSelector.css";
 
 type Themes = "auto" | "dark" | "light" | "classic";
 
-export default ({closeNav} : {closeNav: any}) => {
+const ThemeSelector = ({closeNav} : {closeNav: any}) => {
   const [selectedTheme, setSelectedTheme] = useState<Themes>("auto");
   const buttons: Themes[] = ["auto", "dark", "light", "classic"];
 
@@ -47,3 +47,5 @@ export default ({closeNav} : {closeNav: any}) => {
     </div>
   );
 };
+
+export default memo(ThemeSelector, () => true)

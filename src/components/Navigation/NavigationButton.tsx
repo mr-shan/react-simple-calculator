@@ -1,4 +1,6 @@
-import "./NavigationButton.css";
+import { memo } from 'react';
+
+import './NavigationButton.css';
 
 interface IProps {
   toggleHistory: any;
@@ -10,31 +12,40 @@ const BurgerIcon = (props: IProps) => {
   const clickHandler = () => {
     props.showNav ? props.closeHistory() : props.toggleHistory();
   };
+
   return (
-    <button className="calc__history-button" onClick={clickHandler} aria-label="Options" title='Options'>
+    <button
+      className='calc__history-button'
+      onClick={clickHandler}
+      aria-label='Options'
+      title='Options'
+    >
       <span
         className={
           props.showNav
-            ? "calc__history-button-bar1 calc__history-button-bar1-open"
-            : "calc__history-button-bar1"
+            ? 'calc__history-button-bar1 calc__history-button-bar1-open'
+            : 'calc__history-button-bar1'
         }
       ></span>
       <span
         className={
           props.showNav
-            ? "calc__history-button-bar2 calc__history-button-bar2-open"
-            : "calc__history-button-bar2"
+            ? 'calc__history-button-bar2 calc__history-button-bar2-open'
+            : 'calc__history-button-bar2'
         }
       ></span>
       <span
         className={
           props.showNav
-            ? "calc__history-button-bar3 calc__history-button-bar3-open"
-            : "calc__history-button-bar3"
+            ? 'calc__history-button-bar3 calc__history-button-bar3-open'
+            : 'calc__history-button-bar3'
         }
       ></span>
     </button>
   );
 };
 
-export default BurgerIcon
+export default memo(
+  BurgerIcon,
+  (props: IProps, nextProps: IProps) => props.showNav === nextProps.showNav
+);

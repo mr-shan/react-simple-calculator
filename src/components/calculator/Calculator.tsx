@@ -2,11 +2,6 @@ import React, { Suspense, lazy } from 'react';
 
 import InputButtons from './InputButtons';
 
-// import Expression from './Expression';
-// import Result from './Result';
-// import KeyPressHelper from './KeyPressHelper';
-// import Navigation from './../Navigation/Index';
-
 const Expression = lazy(() => import('./Expression'));
 const Result = lazy(() => import('./Result'));
 const KeyPressHelper = lazy(() => import('./KeyPressHelper'));
