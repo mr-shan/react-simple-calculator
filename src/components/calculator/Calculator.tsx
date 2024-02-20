@@ -57,6 +57,7 @@ export default () => {
       <Suspense fallback={<div>loading...</div>}>
         <Expression
           expression={expression}
+          expressionItems={calcObj.expressionItems}
           expressionLength={calcObj.expressionLength}
         />
         <Result tempValue={calcObj.result} result={result} />

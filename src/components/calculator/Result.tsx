@@ -33,7 +33,7 @@ const Result = (props: IProps) => {
   return (
     <div className='calc__result-wrapper'>
       <div className={className} style={styleObj}>
-        {result}
+        {result.toLocaleString('en-in')}
       </div>
     </div>
   );

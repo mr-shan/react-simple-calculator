@@ -20,6 +20,7 @@ class Calculator {
   currentNumber: string;
   openBrackets: number;
   calculatorDb: any;
+  expressionItems: string[];
 
   constructor() {
     this.expression = '';
@@ -30,6 +31,7 @@ class Calculator {
     this.hasCalculationPerformed = false;
     this.isError = false;
     this.lastResult = null;
+    this.expressionItems = [];
 
     this.currentNumber = '';
     this.openBrackets = 0;
@@ -39,7 +41,9 @@ class Calculator {
   addInput(input: string) {
     if (input === 'BRACKET') {
       input = this.handleBracket();
-      console.log(input);
+      if (input) {
+        this.expressionItems.push(input)
+      }
     }
     const char = sanitize(input);
     if (char === null) return false;
@@ -50,31 +54,46 @@ class Calculator {
       case 'operator':
         result = this.handleOperatorInput(char);
         if (!result) return false;
+        this.expressionItems.push(char.label);
         break;
       case 'number':
         if (this.currentNumber === '0' && char.value === '0') return false;
-        if (this.currentNumber === '0' && this.operationsInProgress.length === 1) {
+        if (
+          this.currentNumber === '0' &&
+          this.operationsInProgress.length === 1
+        ) {
           this.removeLastInput();
         }
         const operationLength = this.operationsInProgress.length - 1;
         const mostRecentOp = this.operationsInProgress[operationLength];
         if (mostRecentOp?.type === 'bracketClose') this.addInput('*');
         this.currentNumber += char.value;
+        if (['number', 'dot'].includes(mostRecentOp?.type)) {
+          this.expressionItems[this.expressionItems.length - 1] += char.value;
+        } else {
+          this.expressionItems.push(char.value);
+        }
         break;
       case 'dot':
         result = this.handleDotInput(char);
-        if (!result) return false;
+        if (result) {
+          this.expressionItems[this.expressionItems.length - 1] += '.';
+        } else {
+          return false;
+        }
         break;
     }
 
     this.operationsInProgress.push(char);
     this.evaluateExpression();
+    console.log(this.expressionItems);
     return true;
   }
 
   addHistoricalResult(result: number) {
     const operationLength = this.operationsInProgress.length - 1;
     const mostRecentOp = this.operationsInProgress[operationLength];
+    // todo: if bracket close, add input
     if (
       mostRecentOp?.type === 'number' ||
       mostRecentOp?.type === 'bracketClose'
@@ -90,6 +109,7 @@ class Calculator {
         this.currentNumber += sanitizedChar?.value;
         this.operationsInProgress.push(sanitizedChar);
       });
+    this.expressionItems.push(result.toString())
     this.evaluateExpression();
     return true;
   }
@@ -178,7 +198,7 @@ class Calculator {
       this.hasCalculationPerformed = false;
       this.currentNumber = '';
     }
-    return true
+    return true;
   }
 
   async showResult() {
@@ -201,13 +221,23 @@ class Calculator {
     // setting up timeout to improve the performance of css animation and delay db operations
     setTimeout(() => {
       this.calculatorDb.addCalculation(resultData);
-    }, 250)
+    }, 250);
   }
 
   removeLastInput() {
     if (this.operationsInProgress.length === 0) return;
 
     const removedChar = this.operationsInProgress.pop();
+    if (this.expressionItems.length) {
+      const lastExpression =
+      this.expressionItems[this.expressionItems.length - 1];
+      if (lastExpression?.length === 1) {
+        this.expressionItems.pop();
+      } else {
+        this.expressionItems[this.expressionItems.length - 1] =
+        lastExpression.substring(0, lastExpression.length - 1);
+      }
+    }
     this.evaluateExpression();
     return removedChar;
   }
@@ -229,6 +259,7 @@ class Calculator {
     this.lastResult = null;
     this.expressionLength = 0;
     this.currentNumber = '';
+    this.expressionItems = [];
   }
 
   async loadCalculations() {
@@ -244,13 +275,13 @@ class Calculator {
 
   async cleanHistory() {
     try {
-      await this.calculatorDb.cleanAllCalculationData()
+      await this.calculatorDb.cleanAllCalculationData();
       this.calculationHistory = [];
-      return Promise.resolve(true)
+      return Promise.resolve(true);
     } catch (error) {
-      console.dir(error)
-      console.error("failed to clearn history")
-      return Promise.reject(false)
+      console.dir(error);
+      console.error('failed to clearn history');
+      return Promise.reject(false);
     }
   }
 }

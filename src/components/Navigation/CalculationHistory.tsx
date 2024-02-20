@@ -53,7 +53,7 @@ const CalculatorHistory = (props: IProps) => {
               }}
             ></p>
             <p className='calc__expression-history-item-result'>
-              {item.result}
+              {item.result.toLocaleString('en-in')}
             </p>
           </div>
         ))}
