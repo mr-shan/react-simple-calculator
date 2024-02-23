@@ -36,4 +36,13 @@ Welcome to A Simple Calculator, a web application built with React.js and TypeSc
 
 Access the calculator at [A Simple Calculator](https://a-simple-calctr.netlify.app). Enjoy effortless arithmetic calculations with added convenience and functionality!
 
+## Usage
+
+1. Clone the repository:
+[https://github.com/mr-shan/react-simple-calculator.git](https://github.com/mr-shan/react-simple-calculator.git)
+2. Navigate to the project directory: `react-simple-calculator`
+3. Install dependencies: `npm install`
+4. Run the application: `npm run dev`
+5. Open the link in browser `http://localhost:3000/`
+
 Feel free to contribute or provide feedback. Happy calculating! 🧮🚀
