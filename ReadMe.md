@@ -1,5 +1,7 @@
 # A Simple Calculator
 
+`Version: 1.2.5`
+
 Welcome to A Simple Calculator, a web application built with React.js and TypeScript. This calculator provides a user-friendly interface for basic arithmetic calculations and offers additional features to enhance your calculation experience.
 
 ## Technologies Used
