@@ -1,3 +1,4 @@
+![Icon](https://a-simple-calctr.netlify.app/icons/48.png)
 # A Simple Calculator
 
 `Version: 1.2.5`
@@ -46,5 +47,10 @@ Access the calculator at [A Simple Calculator](https://a-simple-calctr.netlify.a
 3. Install dependencies: `npm install`
 4. Run the application: `npm run dev`
 5. Open the link in browser `http://localhost:3000/`
+
+## Images
+![Homescreen](https://a-simple-calctr.netlify.app/screenshots/first.jpg)
+![Homescreen](https://a-simple-calctr.netlify.app/screenshots/second.jpg)
+![Homescreen](https://a-simple-calctr.netlify.app/screenshots/third.jpg)
 
 Feel free to contribute or provide feedback. Happy calculating! 🧮🚀
